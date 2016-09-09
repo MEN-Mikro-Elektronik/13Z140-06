@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="packagedesc.xsd">
+	<name>13z14006</name>
+	<description>MDIS5 driver package for MEN 16Z140 Frequency Counter</description>
+	<date>2016-09-09</date>
+	<revision>0.1</revision>
+	<docroot>DRIVERS/MDIS_LL/Z140/DOC/html/index.html</docroot>
+	<!-- Models -->
+	<modellist>
+		<model>
+			<!-- standard model -->
+			<hwname>16Z140_FREQ</hwname>
+			<description>Frequency Counter in Chameleon FPGA</description>
+			<devnameprefix>WDOG</devnameprefix>
+			<devtype>MDIS</devtype>
+            <autoid>
+                <chamv2id>140</chamv2id>
+            </autoid>
+            <bbslot>
+                <bbismodel>CHAMELEON</bbismodel>
+            </bbslot>
+            <bbslot>
+                <bbismodel>CHAMELEON_PCITBL</bbismodel>
+            </bbslot>
+		</model>
+	</modellist>
+	<!-- Global software modules -->
+	<swmodulelist>
+		<swmodule>
+			<name>z140</name>
+			<description>Frequency Counter Driver</description>
+			<type>Low Level Driver</type>
+			<makefilepath>Z140/DRIVER/COM/driver.mak</makefilepath>
+		</swmodule>
+    <swmodule>
+			<name>z140_simp</name>
+			<description>Simple example program for Frequency Counter driver</description>
+      <type>Driver Specific Tool</type>
+      <makefilepath>Z140/EXAMPLE/Z140_SIMP/COM/program.mak</makefilepath>
+    </swmodule>
+		<swmodule>
+			<name>z140_ctrl</name>
+			<description>Control tool for Frequency Counter driver</description>
+      <type>Driver Specific Tool</type>
+      <makefilepath>Z140/TOOLS/Z140_CTRL/COM/program.mak</makefilepath>
+    </swmodule>
+	</swmodulelist>
+</package>
