@@ -11,7 +11,7 @@
 			<!-- standard model -->
 			<hwname>16Z140_FREQ</hwname>
 			<description>Frequency Counter in Chameleon FPGA</description>
-			<devnameprefix>WDOG</devnameprefix>
+			<devnameprefix>FREQ</devnameprefix>
 			<devtype>MDIS</devtype>
             <autoid>
                 <chamv2id>140</chamv2id>
