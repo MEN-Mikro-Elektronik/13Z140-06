@@ -41,8 +41,8 @@
 #define Z140_DIRDET_TOUT 	M_DEV_OF+0x04	/**< G,S: Direction detection timeout between 10ms and 2550ms in steps of 10ms */
 #define Z140_DISTRST		M_DEV_OF+0x05	/**<   S: Reset the forward and backward distance counters */
 #define Z140_TPATTERN		M_DEV_OF+0x06	/**< G,S: Configuration of the test pattern generator */
-#define Z140_PERIOD_A		M_DEV_OF+0x07	/**< G  : Period measurement for signal A */
-#define Z140_PERIOD_B		M_DEV_OF+0x08	/**< G  : Period measurement for signal B */
+#define Z140_PERIOD_A		M_DEV_OF+0x07	/**< G  : Period time in 1/32us for signal A */
+#define Z140_PERIOD_B		M_DEV_OF+0x08	/**< G  : Period time in 1/32us for signal B */
 #define Z140_DISTANCE_FWD 	M_DEV_OF+0x09	/**< G  : Number of "sensor pulses" in forward direction */
 #define Z140_DISTANCE_BWD 	M_DEV_OF+0x0a	/**< G  : Number of "sensor pulses" in backward direction */
 #define Z140_STATUS			M_DEV_OF+0x0b	/**< G  : STATUS flags (STATUS register of the Z140 IP core) */
@@ -52,7 +52,11 @@
 #define Z140_TP_DISABLE		0		/**< Disable test pattern */
 #define Z140_TP_FWD			1		/**< Clockwise pattern (forward movement) */
 #define Z140_TP_BWD			2		/**< Counterclockwise pattern (backward movement) */
-#define Z140_TP_STANDSTILL	3		/**<Silence pattern (to test standstill detector) */
+#define Z140_TP_STANDSTILL	3		/**< Silence pattern (standstill) */
+
+/* Z140_PERIOD_A/B macros */
+#define Z140_PER_MS(read)			((read) >> 5) 					 /**< period time in ms */
+#define Z140_PER_US(read)			((((read) & 0x1F) * 3125) / 100) /**< period time in us */
 
 /* Z140_STATUS flags */
 #define Z140_ST_ROLLING		0x01	/**< Any edge on any input signal */
