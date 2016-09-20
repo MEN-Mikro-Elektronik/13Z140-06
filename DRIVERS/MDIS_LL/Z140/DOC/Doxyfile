@@ -1,0 +1,25 @@
+@INCLUDE_PATH = $(MEN_DOXYGENTMPL)
+@INCLUDE = DoxyfileCommon
+
+PROJECT_NAME           = "Z140 MDIS Driver"
+INPUT                  = ../DRIVER/COM \
+                         ../EXAMPLE/Z140_SIMP/COM/z140_simp.c \
+                         ../TOOLS/Z140_CTRL/COM/z140_ctrl.c \
+                         $(MEN_COM_INC)/MEN/z140_drv.h
+
+EXAMPLE_RECURSIVE      = YES
+EXAMPLE_PATH           = ../DRIVER/COM \
+                         ../EXAMPLE/Z140_SIMP/COM \
+                         ../TOOLS/Z140_CTRL/COM \
+
+OUTPUT_DIRECTORY       = .
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+GENERATE_HTMLHELP      = YES
+WARNINGS               = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_IF_UNDOCUMENTED   = YES
+GENERATE_HTMLHELP      = YES
+SOURCE_BROWSER         = YES
+TAGFILES               = ../../../../LIBSRC/MDIS_API/DOC/mdis_api.tag=../../../../../LIBSRC/MDIS_API/DOC/html
+GENERATE_TAGFILE       = z140_driver.tag
