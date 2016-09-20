@@ -68,7 +68,7 @@ static void usage(void)
 	printf("    -d=<us>    direction detection timeout (10..[10]..2550ms)...[desc]   \n");
 	printf("    -g         get used configuration parameters (listed above)          \n");
 	printf("    -c         clear forward and backward distance counters              \n");
-	printf("    -p=0..3    test pattern generator...........................[0]      \n");
+	printf("    -p=0..3    configure pattern generator                               \n");
 	printf("               0: disable test pattern                                   \n");
 	printf("               1: clockwise pattern (forward movement)                   \n");
 	printf("               2: counterclockwise pattern (backward movement)           \n");
@@ -98,10 +98,9 @@ int main(int argc, char *argv[])
 	int32	debTime, measTout, rollTime, standTime, detTout, getCfg, clrCntr, pattern;
 	int32	getMeas, getStat, loopTime, abort;
 	int32   val, periodA, periodB, distFwd, distBwd;
-	u_int32	n, loop, loopcnt;
+	u_int32	n, loopcnt;
 	int		ret;
 	char	*periodAStat, *periodBStat;
-	char	periodAVal[12], periodBVal[12];
 
 	/*----------------------+
 	|  check arguments      |
@@ -114,7 +113,7 @@ int main(int argc, char *argv[])
 		usage();
 		return ERR_PARAM;
 	}
-	if (argc < 2) {
+	if (argc < 3) {
 		usage();
 		return ERR_PARAM;
 	}
@@ -140,7 +139,7 @@ int main(int argc, char *argv[])
 	detTout   = ((str = UTL_TSTOPT("d=")) ? atoi(str) : -1);
 	getCfg    = (UTL_TSTOPT("g") ? 1 : 0);
 	clrCntr   = (UTL_TSTOPT("c") ? 1 : 0);
-	pattern   = ((str = UTL_TSTOPT("p=")) ? atoi(str) : 0);
+	pattern   = ((str = UTL_TSTOPT("p=")) ? atoi(str) : -1);
 	getMeas   = (UTL_TSTOPT("M") ? 1 : 0);
 	getStat   = (UTL_TSTOPT("S") ? 1 : 0);
 	loopTime  = ((str = UTL_TSTOPT("L=")) ? atoi(str) : -1);
@@ -213,23 +212,23 @@ int main(int argc, char *argv[])
 		}
 		printf("Measurement timeout         : %dms\n", val);
 
-		if ((M_getstat(path, Z140_DEBOUNCET, &val)) < 0) {
-			ret = PrintError("getstat Z140_DEBOUNCET");
-			goto ABORT;
-		}
-		printf("Rolling time period         : %dms\n", val);
-
 		if ((M_getstat(path, Z140_ROLLINGT, &val)) < 0) {
 			ret = PrintError("getstat Z140_ROLLINGT");
 			goto ABORT;
 		}
-		printf("Standstill time period      : %dms\n", val);
+		printf("Rolling time period         : %dms\n", val);
 
 		if ((M_getstat(path, Z140_STANDSTILLT, &val)) < 0) {
 			ret = PrintError("getstat Z140_STANDSTILLT");
 			goto ABORT;
 		}
-		printf("Direction detection timeout : %dus\n", val);
+		printf("Standstill time period      : %dms\n", val);
+
+		if ((M_getstat(path, Z140_DIRDET_TOUT, &val)) < 0) {
+			ret = PrintError("getstat Z140_DIRDET_TOUT");
+			goto ABORT;
+		}
+		printf("Direction detection timeout : %dms\n", val);
 	}
 
 	/*----------------------+
@@ -245,18 +244,21 @@ int main(int argc, char *argv[])
 	/*----------------------+
 	|  config pattern gen   |
 	+----------------------*/
-	if ((M_setstat(path, Z140_TPATTERN, pattern)) < 0) {
-		ret = PrintError("setstat Z140_TPATTERN");
-		goto ABORT;
+	if (pattern != -1) {
+		if ((M_setstat(path, Z140_TPATTERN, pattern)) < 0) {
+			ret = PrintError("setstat Z140_TPATTERN");
+			goto ABORT;
+		}
 	}
 
 	/*----------------------+
 	|  loop                 |
 	+----------------------*/
-	loopcnt = 0;
-	do {
+	loopcnt = 1;
+	while (getMeas || getStat){
 
-		printf("#%d\n", loopcnt);
+		if (loopTime != -1)
+			printf("#%d\n", loopcnt);
 
 		if (getMeas) {
 			/*--------------------------+
@@ -268,18 +270,16 @@ int main(int argc, char *argv[])
 					goto ABORT;
 			}
 			else {
-				sprintf(periodAVal, "%8d.%02d", Z140_PER_MS(periodA), Z140_PER_US(periodA));
-				periodAStat = periodAVal;
+				periodAStat = "success";
 			}
 
 			/* period measurement for signal B */
 			if ((M_getstat(path, Z140_PERIOD_B, &periodB)) < 0) {
-				if ((ret = MeasStat("getstat Z140_PERIOD_A", &periodAStat)))
+				if ((ret = MeasStat("getstat Z140_PERIOD_A", &periodBStat)))
 					goto ABORT;
 			}
 			else {
-				sprintf(periodBVal, "%8d.%02d", Z140_PER_MS(periodB), Z140_PER_US(periodB));
-				periodBStat = periodBVal;
+				periodBStat = "success";
 			}
 
 			/* sensor pulses */
@@ -293,10 +293,12 @@ int main(int argc, char *argv[])
 				goto ABORT;
 			}
 
-			printf("period-A : %s ms\n", periodAStat);
-			printf("period-B : %s ms\n", periodBStat);
-			printf("dist-fwd : %10d pulses\n", distFwd);
-			printf("dist-bwd : %10d pulses\n", distBwd);
+			printf("period-A     :   %8d.%03.3dms (%s)\n",
+				Z140_PER_MS(periodA), Z140_PER_US(periodA), periodAStat);
+			printf("period-B     :   %8d.%03.3dms (%s)\n",
+				Z140_PER_MS(periodB), Z140_PER_US(periodB), periodBStat);
+			printf("dist-fwd     : %10d pulses\n", distFwd);
+			printf("dist-bwd     : %10d pulses\n", distBwd);
 		}
 
 		if (getStat) {
@@ -308,7 +310,7 @@ int main(int argc, char *argv[])
 				goto ABORT;
 			}
 			
-			printf("status flags: ");
+			printf("status flags : ");
 			if (val & Z140_ST_DIR_INVALID) printf("invalid-dir ");
 			if (val & Z140_ST_DIR_BWD)     printf("backward-dir ");
 			if (val & Z140_ST_DIR_FWD)     printf("forward-dir ");
@@ -318,23 +320,23 @@ int main(int argc, char *argv[])
 		}
 
 		/* loop? */
-		loop = 0;
 		if (loopTime != -1){
 			UOS_Delay(loopTime);
 
 			/* repeat until keypress */
-			if (UOS_KeyPressed() == -1)
-				loop = 1;
+			if (UOS_KeyPressed() != -1)
+				break;
 
 			/* abort after n cycles */
 			if (abort){
-				loopcnt++;
 				if (loopcnt==abort)
-					loop = 0;
+					break;
+				loopcnt++;
 			}
 		}
-					
-	} while (loop);
+		else
+			break;
+	}
 
 	printf("\n");
 	ret = ERR_OK;
@@ -373,7 +375,7 @@ static int PrintError(char *info)
 static int MeasStat(char *info, char **statStr)
 {
 	u_int32 stat;
-	static char *errStr[] = { "period-err ", "phase-err  ", "no-new-data" };
+	static char *errStr[] = { "*** period-err ", "*** phase-err  ", "*** no-new-data"};
 
 	stat = UOS_ErrnoGet();
 

@@ -51,12 +51,12 @@
 #define DBH                llHdl->dbgHdl      /**< debug handle */
 #define OSH                llHdl->osHdl       /**< OS handle    */
 
-/* default defines */
-#define DEBOUNCE_TIME_DEF	100		/**< debounce time [us] */
-#define MEAS_TOUT_DEF		1000	/**< measurement timeout [ms] */
-#define ROLLING_TIME_DEF	1000	/**< rolling time period [ms] */
-#define STANDSTILL_TIME_DEF	1000	/**< standstill time period [ms] */
-#define DIRDET_TOUT_DEF		1000	/**< direction detection timeout [ms] */
+/* default defines (for internal pattern generator usage) */
+#define DEBOUNCE_TIME_DEF	  5		/**< debounce time [us] */
+#define MEAS_TOUT_DEF		100		/**< measurement timeout [ms] */
+#define ROLLING_TIME_DEF	 10		/**< rolling time period [ms] */
+#define STANDSTILL_TIME_DEF	 20		/**< standstill time period [ms] */
+#define DIRDET_TOUT_DEF		100		/**< direction detection timeout [ms] */
 
 /*-----------------------------------------+
 |  TYPEDEFS                                |
@@ -148,7 +148,7 @@ static int32 SetDirdetTout(LL_HANDLE *llHdl, u_int32 value);
  * DEBUG_LEVEL_DESC      OSS_DBG_DEFAULT  see dbg.h
  * DEBUG_LEVEL           OSS_DBG_DEFAULT  see dbg.h
  * DEBOUNCE_TIME                          0..255us [1us]
- * MEAS_TOUT      	                      100..10000ms [100ms]
+ * MEAS_TOUT                              100..10000ms [100ms]
  * ROLLING_TIME                           10..2550ms [10ms]
  * STANDSTILL_TIME                        10..2550ms [10ms]
  * DIRDET_TOUT                            10..2550ms [10ms]
@@ -610,21 +610,19 @@ static int32 Z140_GetStat(
 			else
 				read = MREAD_D32(ma, Z140R_PERIOD_B);
 
+			/* return always period value */
+			*valueP = read & Z140R_PERIOD_MASK;
+
 			/* no new period value since last read? */
 			if(!(read & Z140R_PERIOD_NEW))
 				error = Z140_ERR_NO_DATA;
-
 			/* signal phase length violation? */
 			else if((read & Z140R_PERIOD_LSTS))
 				error = Z140_ERR_PH_VIOLATION;
-			
 			/* signal period invalid? */
 			else if(!(read & Z140R_PERIOD_VLD))
 				error = Z140_ERR_PER_INVALID;
 			
-			/* new valid period value */
-			else
-				*valueP = read & Z140R_PERIOD_MASK;
 			break;
 		/*--------------------------+
 		|  distance pulses          |

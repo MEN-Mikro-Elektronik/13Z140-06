@@ -57,13 +57,14 @@ static int MeasStat(char *info, char **statStr);
  */
 static void usage(void)
 {
-	printf("Usage:    z140_simp <device>\n");
+	printf("Usage:    z140_simp <device> [<delay> [<l>]]\n");
 	printf("Function: Example program for the Z140 Frequency Counter driver    \n");
 	printf("            Using configuration parameters from device descriptor  \n");
 	printf("            or defaults if no parameters set in descriptor.\n");
 	printf("Options:\n");
-	printf("    device       device name (e.g. z140_1)\n");
-	printf("    delay        delay between cycles in ms (default=100)\n");
+	printf("    device   device name (e.g. freq_1)\n");
+	printf("    delay    delay between cycles in ms (default=100)\n");
+	printf("    l        print each output in a new line\n");
 	printf("\n");
 	printf("(c)Copyright 2016 by MEN Mikro Elektronik GmbH (%s)\n", __DATE__);
 }
@@ -81,10 +82,10 @@ int main(int argc, char *argv[])
 	char      *device;
 	int32     val, periodA, periodB, distFwd, distBwd;
 	char      *periodAStat, *periodBStat;
-	char      periodAVal[12], periodBVal[12], *status="          ";
+	char      periodAVal[16], periodBVal[16], status[]="- - - - -";
 	char      *st = status;
 	MDIS_PATH path;
-	int		  ret, delay;
+	int		  ret, delay, newLine=0, blink=0;
 
 	if (argc < 2 || strcmp(argv[1], "-?") == 0) {
 		usage();
@@ -97,6 +98,9 @@ int main(int argc, char *argv[])
 		delay = strtol(argv[2], NULL, 0);
 	else
 		delay = 100;
+
+	if (argc > 3)
+		newLine = (*argv[3] == 'l') ? 1 : 0;
 
 	/*----------------------+
 	|  open path            |
@@ -144,20 +148,20 @@ int main(int argc, char *argv[])
 		ret = PrintError("getstat Z140_STANDSTILLT");
 		goto ABORT;
 	}
-	printf("Direction detection timeout : %dus\n", val);
+	printf("Direction detection timeout : %dms\n", val);
 
-	printf("\nLooping with cycle delay=%dms\n");
-	printf("Press any key to abort\n\n");
+	printf("\nLooping all %dms - Press any key to abort\n", delay);
 
-	printf("                                              +--------- Invalid dir\n");
-	printf("                                              | +------- Backward dir\n");
-	printf("                                              | | +----- Forward dir\n");
-	printf("                                              | | | +--- Standstill\n");
-	printf("                                              | | | | +- Rolling\n");
-	printf("                                              | | | | |\n");
-	printf("  [ms]        [ms]      [pulses]   [pulses]   I B F S R\n");
-	printf("period-A    period-B    dist-fwd   dist-bwd   status\n");
-	do {
+	printf("                                                      +--------- Invalid dir\n");
+	printf("                                                      | +------- Backward dir\n");
+	printf("                                                      | | +----- Forward dir\n");
+	printf("                                                      | | | +--- Standstill\n");
+	printf("                                                      | | | | +- Rolling\n");
+	printf("                                                      | | | | |\n");
+	printf("       [ms]          [ms]     [pulses]     [pulses]   I B F S R\n");
+	printf("   period-A      period-B     dist-fwd     dist-bwd      status\n");
+	
+	while (UOS_KeyPressed() == -1) {
 		/*--------------------------+
 		|  get measurement results  |
 		+--------------------------*/
@@ -167,17 +171,17 @@ int main(int argc, char *argv[])
 				goto ABORT;
 		}
 		else {
-			sprintf(periodAVal, "%8d.%02d", Z140_PER_MS(periodA), Z140_PER_US(periodA));
+			sprintf(periodAVal, "%8d.%02.2d", Z140_PER_MS(periodA), Z140_PER_US(periodA));
 			periodAStat = periodAVal;
 		}
 
 		/* period measurement for signal B */
 		if ((M_getstat(path, Z140_PERIOD_B, &periodB)) < 0) {
-			if ((ret = MeasStat("getstat Z140_PERIOD_A", &periodAStat)))
+			if ((ret = MeasStat("getstat Z140_PERIOD_A", &periodBStat)))
 				goto ABORT;
 		}
 		else {
-			sprintf(periodBVal, "%8d.%02d", Z140_PER_MS(periodB), Z140_PER_US(periodB));
+			sprintf(periodBVal, "%8d.%02.2d", Z140_PER_MS(periodB), Z140_PER_US(periodB));
 			periodBStat = periodBVal;
 		}
 
@@ -198,19 +202,27 @@ int main(int argc, char *argv[])
 			goto ABORT;
 		}
 
-		if (val & Z140_ST_DIR_INVALID) st[0]='x'; else st[0]=' ';
-		if (val & Z140_ST_DIR_BWD)     st[2]='x'; else st[0]=' ';
-		if (val & Z140_ST_DIR_FWD)     st[4]='x'; else st[0]=' ';
-		if (val & Z140_ST_STANDSTILL)  st[6]='x'; else st[0]=' ';
-		if (val & Z140_ST_ROLLING)     st[8]='x'; else st[0]=' ';
+		if (val & Z140_ST_DIR_INVALID) st[0]='I'; else st[0]='-';
+		if (val & Z140_ST_DIR_BWD)     st[2]='B'; else st[2]='-';
+		if (val & Z140_ST_DIR_FWD)     st[4]='F'; else st[4]='-';
+		if (val & Z140_ST_STANDSTILL)  st[6]='S'; else st[6]='-';
+		if (val & Z140_ST_ROLLING)     st[8]='R'; else st[8]='-';
 
-		/* print/update measurement values in one line */
-		printf("%s %s %10d %10d %s\r",
-			periodAStat, periodBStat, distFwd, distBwd, status);
+		if (newLine){
+			/* print/update measurement values in new line */
+			printf("%s   %s   %10d   %10d   %s\n",
+				periodAStat, periodBStat, distFwd, distBwd, status);
+		}
+		else {
+			/* print/update measurement values in same line */
+			printf("%s   %s   %10d   %10d   %s  %s\r",
+				periodAStat, periodBStat, distFwd, distBwd, status, blink ? "  /  " : "  \\  ");
+			fflush(stdout);
+			blink ^= 1;
+		}
 
 		UOS_Delay(delay);
-
-	} while (UOS_KeyPressed() == -1);
+	}
 
 	printf("\n");
 	ret = ERR_OK;
