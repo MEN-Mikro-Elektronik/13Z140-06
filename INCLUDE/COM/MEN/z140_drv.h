@@ -55,8 +55,8 @@
 #define Z140_TP_STANDSTILL	3		/**< Silence pattern (standstill) */
 
 /* Z140_PERIOD_A/B macros */
-#define Z140_PER_MS(read)			((read) >> 5) 					 /**< period time in ms */
-#define Z140_PER_US(read)			((((read) & 0x1F) * 3125) / 100) /**< period time in us */
+#define Z140_PER_US(read)			((read) >> 5) 					 /**< period time in us */
+#define Z140_PER_NS(read)			((((read) & 0x1F) * 3125) / 100) /**< period time in ns */
 
 /* Z140_STATUS flags */
 #define Z140_ST_ROLLING		0x01	/**< Any edge on any input signal */

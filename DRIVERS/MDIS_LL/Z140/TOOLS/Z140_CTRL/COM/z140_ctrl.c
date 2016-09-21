@@ -78,7 +78,10 @@ static void usage(void)
 	printf("    -L=<ms>    loop (-S/-M) all ms until keypress or specified cycles    \n");
 	printf("    -A=<n>     abort loop after n cycles (requires -L=<ms>)              \n");
 	printf("\n");
-	printf("Note: [desc] default means to use descriptor key or driver default\n");
+	printf("Notes:\n");
+	printf("- [desc] default means to use descriptor key or driver default\n");
+	printf("- The driver resets the distance counters and disables the test pattern\n");
+	printf("  generator, when the last file handle to the device will be closed.\n");
 	printf("\n");
 	printf("(c)Copyright 2016 by MEN Mikro Elektronik GmbH (%s)\n", __DATE__);
 }
@@ -293,10 +296,10 @@ int main(int argc, char *argv[])
 				goto ABORT;
 			}
 
-			printf("period-A     :   %8d.%03.3dms (%s)\n",
-				Z140_PER_MS(periodA), Z140_PER_US(periodA), periodAStat);
-			printf("period-B     :   %8d.%03.3dms (%s)\n",
-				Z140_PER_MS(periodB), Z140_PER_US(periodB), periodBStat);
+			printf("period-A     :   %8d.%03.3dus (%s)\n",
+				Z140_PER_US(periodA), Z140_PER_NS(periodA), periodAStat);
+			printf("period-B     :   %8d.%03.3dus (%s)\n",
+				Z140_PER_US(periodB), Z140_PER_NS(periodB), periodBStat);
 			printf("dist-fwd     : %10d pulses\n", distFwd);
 			printf("dist-bwd     : %10d pulses\n", distBwd);
 		}
@@ -375,7 +378,7 @@ static int PrintError(char *info)
 static int MeasStat(char *info, char **statStr)
 {
 	u_int32 stat;
-	static char *errStr[] = { "*** period-err ", "*** phase-err  ", "*** no-new-data"};
+	static char *errStr[] = { "*** period-err", "*** phase-err", "*** no-new-data"};
 
 	stat = UOS_ErrnoGet();
 

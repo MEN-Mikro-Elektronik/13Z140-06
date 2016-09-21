@@ -132,34 +132,34 @@ int main(int argc, char *argv[])
 	}
 	printf("Measurement timeout         : %dms\n", val);
 
-	if ((M_getstat(path, Z140_DEBOUNCET, &val)) < 0) {
-		ret = PrintError("getstat Z140_DEBOUNCET");
-		goto ABORT;
-	}
-	printf("Rolling time period         : %dms\n", val);
-
 	if ((M_getstat(path, Z140_ROLLINGT, &val)) < 0) {
 		ret = PrintError("getstat Z140_ROLLINGT");
 		goto ABORT;
 	}
-	printf("Standstill time period      : %dms\n", val);
+	printf("Rolling time period         : %dms\n", val);
 
 	if ((M_getstat(path, Z140_STANDSTILLT, &val)) < 0) {
 		ret = PrintError("getstat Z140_STANDSTILLT");
+		goto ABORT;
+	}
+	printf("Standstill time period      : %dms\n", val);
+
+	if ((M_getstat(path, Z140_DIRDET_TOUT, &val)) < 0) {
+		ret = PrintError("getstat Z140_DIRDET_TOUT");
 		goto ABORT;
 	}
 	printf("Direction detection timeout : %dms\n", val);
 
 	printf("\nLooping all %dms - Press any key to abort\n", delay);
 
-	printf("                                                      +--------- Invalid dir\n");
-	printf("                                                      | +------- Backward dir\n");
-	printf("                                                      | | +----- Forward dir\n");
-	printf("                                                      | | | +--- Standstill\n");
-	printf("                                                      | | | | +- Rolling\n");
-	printf("                                                      | | | | |\n");
-	printf("       [ms]          [ms]     [pulses]     [pulses]   I B F S R\n");
-	printf("   period-A      period-B     dist-fwd     dist-bwd      status\n");
+	printf("                                                        +--------- Invalid dir\n");
+	printf("                                                        | +------- Backward dir\n");
+	printf("                                                        | | +----- Forward dir\n");
+	printf("                                                        | | | +--- Standstill\n");
+	printf("                                                        | | | | +- Rolling\n");
+	printf("                                                        | | | | |\n");
+	printf("        [us]           [us]     [pulses]     [pulses]   I B F S R\n");
+	printf("    period-A       period-B     dist-fwd     dist-bwd      status\n");
 	
 	while (UOS_KeyPressed() == -1) {
 		/*--------------------------+
@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
 				goto ABORT;
 		}
 		else {
-			sprintf(periodAVal, "%8d.%02.2d", Z140_PER_MS(periodA), Z140_PER_US(periodA));
+			sprintf(periodAVal, "%8d.%03d", Z140_PER_US(periodA), Z140_PER_NS(periodA));
 			periodAStat = periodAVal;
 		}
 
@@ -181,7 +181,7 @@ int main(int argc, char *argv[])
 				goto ABORT;
 		}
 		else {
-			sprintf(periodBVal, "%8d.%02.2d", Z140_PER_MS(periodB), Z140_PER_US(periodB));
+			sprintf(periodBVal, "%8d.%03d", Z140_PER_US(periodB), Z140_PER_NS(periodB));
 			periodBStat = periodBVal;
 		}
 
@@ -261,7 +261,7 @@ static int PrintError(char *info)
 static int MeasStat(char *info, char **statStr)
 {
 	u_int32 stat;
-	static char *errStr[] = { "period-err ", "phase-err  ", "no-new-data" };
+	static char *errStr[] = { "  period-err", "   phase-err", " no-new-data" };
 
 	stat = UOS_ErrnoGet();
 
