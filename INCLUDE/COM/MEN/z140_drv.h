@@ -3,8 +3,8 @@
  *        \file  z140_drv.h
  *
  *      \author  dieter.pfeuffer@men.de
- *        $Date: $
- *    $Revision: $
+ *        $Date: 2017/03/30 13:13:50 $
+ *    $Revision: 3.1 $
  *
  *       \brief  Header file for Z140 driver containing
  *               Z140 function prototypes
@@ -16,6 +16,9 @@
  /*-------------------------------[ History ]--------------------------------
  *
  * $Log: z140_drv.h,v $
+ * Revision 3.1  2017/03/30 13:13:50  DPfeuffer
+ * Initial Revision
+ *
  *---------------------------------------------------------------------------
  * (c) Copyright 2016 by MEN mikro elektronik GmbH, Nuernberg, Germany
  ****************************************************************************/
@@ -36,7 +39,7 @@
 /**@{*/
 #define Z140_DEBOUNCET		M_DEV_OF+0x00	/**< G,S: Debounce time between 0us and 255us in steps of 1us */
 #define Z140_MEAS_TOUT		M_DEV_OF+0x01	/**< G,S: Measurement timeout between 100ms and 10000ms in steps of 100ms */
-#define Z140_ROLLINGT 		M_DEV_OF+0x02	/**< G,S: Rolling time period between 10ms and 2550ms in steps of 10ms  */
+#define Z140_ROLLINGT 		M_DEV_OF+0x02	/**< G,S: Rolling time period between 10ms and 2550ms in steps of 10ms */
 #define Z140_STANDSTILLT 	M_DEV_OF+0x03	/**< G,S: Standstill time period between 10ms and 2550ms in steps of 10ms */
 #define Z140_DIRDET_TOUT 	M_DEV_OF+0x04	/**< G,S: Direction detection timeout between 10ms and 2550ms in steps of 10ms */
 #define Z140_DISTRST		M_DEV_OF+0x05	/**<   S: Reset the forward and backward distance counters */

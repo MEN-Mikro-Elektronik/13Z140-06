@@ -6,8 +6,8 @@
 /*!
  *        \file  z140_ctrl.c
  *      \author  dieter.pfeuffer@men.de
- *        $Date: $
- *    $Revision: $
+ *        $Date: 2017/03/30 13:13:47 $
+ *    $Revision: 1.1 $
  *
  *       \brief  Tool to control the Z140 Frequency Counter
  *
@@ -17,6 +17,9 @@
  /*-------------------------------[ History ]--------------------------------
  *
  * $Log: z140_ctrl.c,v $
+ * Revision 1.1  2017/03/30 13:13:47  DPfeuffer
+ * Initial Revision
+ *
  *---------------------------------------------------------------------------
  * (c) Copyright 2016 by MEN Mikro Elektronik GmbH, Nuremberg, Germany
  ****************************************************************************/
@@ -62,10 +65,10 @@ static void usage(void)
 	printf("Options:                                                        [default]\n");
 	printf("    device     device name (e.g. freq_1)                                 \n");
 	printf("    -b=<us>    debounce time (0..[1]..255us)....................[desc]   \n");
-	printf("    -m=<us>    measurement timeout (100..[100]..10000ms)........[desc]   \n");
-	printf("    -r=<us>    rolling time period (10..[10]..2550ms)...........[desc]   \n");
-	printf("    -s=<us>    standstill time period (10..[10]..2550ms)........[desc]   \n");
-	printf("    -d=<us>    direction detection timeout (10..[10]..2550ms)...[desc]   \n");
+	printf("    -m=<ms>    measurement timeout (100..[100]..10000ms)........[desc]   \n");
+	printf("    -r=<ms>    rolling time period (10..[10]..2550ms)...........[desc]   \n");
+	printf("    -s=<ms>    standstill time period (10..[10]..2550ms)........[desc]   \n");
+	printf("    -d=<ms>    direction detection timeout (10..[10]..2550ms)...[desc]   \n");
 	printf("    -g         get used configuration parameters (listed above)          \n");
 	printf("    -c         clear forward and backward distance counters              \n");
 	printf("    -p=0..3    configure pattern generator                               \n");
@@ -101,7 +104,8 @@ int main(int argc, char *argv[])
 	int32	debTime, measTout, rollTime, standTime, detTout, getCfg, clrCntr, pattern;
 	int32	getMeas, getStat, loopTime, abort;
 	int32   val, periodA, periodB, distFwd, distBwd;
-	u_int32	n, loopcnt;
+	u_int32	loopcnt;
+	int		n;
 	int		ret;
 	char	*periodAStat, *periodBStat;
 
@@ -278,7 +282,7 @@ int main(int argc, char *argv[])
 
 			/* period measurement for signal B */
 			if ((M_getstat(path, Z140_PERIOD_B, &periodB)) < 0) {
-				if ((ret = MeasStat("getstat Z140_PERIOD_A", &periodBStat)))
+				if ((ret = MeasStat("getstat Z140_PERIOD_B", &periodBStat)))
 					goto ABORT;
 			}
 			else {

@@ -3,8 +3,8 @@
  *        \file  z140_reg.h
  *
  *      \author  dieter.pfeuffer@men.de
- *        $Date: $
- *    $Revision: $
+ *        $Date: 2017/03/30 13:13:51 $
+ *    $Revision: 3.1 $
  * 
  *  	 \brief  Header file for 16Z140 IP core register defines
  *                      
@@ -13,6 +13,9 @@
 /*-------------------------------[ History ]---------------------------------
  *
  * $Log: z140_reg.h,v $
+ * Revision 3.1  2017/03/30 13:13:51  DPfeuffer
+ * Initial Revision
+ *
  *---------------------------------------------------------------------------
  * (c) Copyright 2016 by MEN Mikro Elektronik GmbH, Nuremberg, Germany 
  ****************************************************************************/

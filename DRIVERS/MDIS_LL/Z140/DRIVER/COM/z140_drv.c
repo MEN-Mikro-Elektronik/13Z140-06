@@ -3,8 +3,8 @@
  *        \file  z140_drv.c
  *
  *      \author  dieter.pfeuffer@men.de 
- *        $Date: $
- *    $Revision: $
+ *        $Date: 2017/03/30 13:13:40 $
+ *    $Revision: 1.1 $
  *
  *       \brief  Low-level driver for the 16Z140 Frequency Counter IP core
  *
@@ -15,6 +15,9 @@
  /*-------------------------------[ History ]--------------------------------
  *
  * $Log: z140_drv.c,v $
+ * Revision 1.1  2017/03/30 13:13:40  DPfeuffer
+ * Initial Revision
+ *
  *---------------------------------------------------------------------------
  * (c) Copyright 2016 by MEN Mikro Elektronik GmbH, Nuernberg, Germany
  ****************************************************************************/
@@ -861,7 +864,7 @@ static int32 Z140_Info(
  */
 static char* Ident(void)
 {
-	return ("Z140 - Z140 low level driver: $Id: z140_drv.c,v $");
+	return ("Z140 - Z140 low level driver: $Id: z140_drv.c,v 1.1 2017/03/30 13:13:40 DPfeuffer Exp $");
 }
 
 /********************************* Cleanup *********************************/
@@ -913,7 +916,7 @@ static int32 SetDebounceTime(
 )
 {
 	/* check range */
-	if (!IN_RANGE(value, 0, 255)) {
+	if (!IN_RANGE((int32)value, 0, 255)) {
 		DBGWRT_ERR((DBH, "*** LL - SetDebounceTime(): illegal value %d\n", value));
 		return ERR_LL_ILL_PARAM;
 	}

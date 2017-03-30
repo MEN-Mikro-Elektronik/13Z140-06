@@ -1,14 +1,17 @@
 #***************************  M a k e f i l e  *******************************
 #
 #         Author: dieter.pfeuffer@men.de
-#          $Date: $
-#      $Revision: $
+#          $Date: 2017/03/30 13:13:42 $
+#      $Revision: 1.1 $
 #
 #    Description: Makefile definitions for the Z140 driver
 #
 #---------------------------------[ History ]---------------------------------
 #
 #   $Log: driver.mak,v $
+#   Revision 1.1  2017/03/30 13:13:42  DPfeuffer
+#   Initial Revision
+#
 #-----------------------------------------------------------------------------
 #   (c) Copyright 2016 by MEN mikro elektronik GmbH, Nuernberg, Germany
 #*****************************************************************************

@@ -39,11 +39,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="dbgHdl"><param name="Name" value="dbgHdl"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o7"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m7"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="dbgLevel"><param name="Name" value="dbgLevel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o6"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m6"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="DBH"><param name="Name" value="DBH"></OBJECT>
   <UL>
@@ -55,7 +55,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="descHdl"><param name="Name" value="descHdl"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o3"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m3"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="DIRDET_TOUT_DEF"><param name="Name" value="DIRDET_TOUT_DEF"></OBJECT>
   <UL>
@@ -82,7 +82,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="idFuncTbl"><param name="Name" value="idFuncTbl"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o5"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m5"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="INT32_OR_64"><param name="Name" value="INT32_OR_64"></OBJECT>
   <UL>
@@ -90,22 +90,22 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="irqHdl"><param name="Name" value="irqHdl"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o2"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m2"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html"><param name="Name" value="LL_HANDLE"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o7"><param name="Name" value="dbgHdl"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o6"><param name="Name" value="dbgLevel"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o3"><param name="Name" value="descHdl"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o5"><param name="Name" value="idFuncTbl"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o2"><param name="Name" value="irqHdl"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o4"><param name="Name" value="ma"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o0"><param name="Name" value="memAlloc"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o1"><param name="Name" value="osHdl"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m7"><param name="Name" value="dbgHdl"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m6"><param name="Name" value="dbgLevel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m3"><param name="Name" value="descHdl"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m5"><param name="Name" value="idFuncTbl"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m2"><param name="Name" value="irqHdl"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m4"><param name="Name" value="ma"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m0"><param name="Name" value="memAlloc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m1"><param name="Name" value="osHdl"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="ma"><param name="Name" value="ma"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o4"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m4"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="main"><param name="Name" value="main"></OBJECT>
   <UL>
@@ -127,7 +127,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="memAlloc"><param name="Name" value="memAlloc"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o0"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m0"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="OSH"><param name="Name" value="OSH"></OBJECT>
   <UL>
@@ -135,7 +135,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="osHdl"><param name="Name" value="osHdl"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#o1"><param name="Name" value="LL_HANDLE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structLL__HANDLE.html#m1"><param name="Name" value="LL_HANDLE"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="PrintError"><param name="Name" value="PrintError"></OBJECT>
   <UL>
@@ -272,8 +272,8 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a24"><param name="Name" value="Z140_ERR_PH_VIOLATION"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a28"><param name="Name" value="Z140_GLOBNAME"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a1"><param name="Name" value="Z140_MEAS_TOUT"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a16"><param name="Name" value="Z140_PER_MS"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a17"><param name="Name" value="Z140_PER_US"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a17"><param name="Name" value="Z140_PER_NS"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a16"><param name="Name" value="Z140_PER_US"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a7"><param name="Name" value="Z140_PERIOD_A"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a8"><param name="Name" value="Z140_PERIOD_B"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a2"><param name="Name" value="Z140_ROLLINGT"></OBJECT>
@@ -331,13 +331,13 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a1"><param name="Name" value="z140_drv.h"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_PER_MS"><param name="Name" value="Z140_PER_MS"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_PER_NS"><param name="Name" value="Z140_PER_NS"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a16"><param name="Name" value="z140_drv.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a17"><param name="Name" value="z140_drv.h"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_PER_US"><param name="Name" value="Z140_PER_US"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a17"><param name="Name" value="z140_drv.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a16"><param name="Name" value="z140_drv.h"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_PERIOD_A"><param name="Name" value="Z140_PERIOD_A"></OBJECT>
   <UL>

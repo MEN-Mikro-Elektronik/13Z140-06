@@ -6,8 +6,8 @@
 /*!
  *        \file  z140_simp.c
  *      \author  dieter.pfeuffer@men.de
- *        $Date: $
- *    $Revision: $
+ *        $Date: 2017/03/30 13:13:45 $
+ *    $Revision: 1.1 $
  *
  *      \brief   Simple example program for the Z140 Frequency Counter driver
  *
@@ -21,7 +21,10 @@
  */
  /*-------------------------------[ History ]--------------------------------
  *
- * $Log: z140_ctrl.c,v $
+ * $Log: z140_simp.c,v $
+ * Revision 1.1  2017/03/30 13:13:45  DPfeuffer
+ * Initial Revision
+ *
  *---------------------------------------------------------------------------
  * (c) Copyright 2016 by MEN Mikro Elektronik GmbH, Nuremberg, Germany
  ****************************************************************************/

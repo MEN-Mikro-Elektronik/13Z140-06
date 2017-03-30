@@ -3,8 +3,8 @@
 *        \file  z140_doc.c
 *
 *      \author  dieter.pfeuffer@men.de
-*        $Date: $
-*    $Revision: $
+*        $Date: 2017/03/30 13:13:41 $
+*    $Revision: 1.1 $
 *
 *      \brief   User documentation for Z140 device driver
 *
@@ -15,6 +15,9 @@
 /*-------------------------------[ History ]--------------------------------
 *
 * $Log: z140_doc.c,v $
+* Revision 1.1  2017/03/30 13:13:41  DPfeuffer
+* Initial Revision
+*
 *---------------------------------------------------------------------------
 * (c) Copyright 2016 by MEN Mikro Elektronik GmbH, Nuernberg, Germany
 ****************************************************************************/
