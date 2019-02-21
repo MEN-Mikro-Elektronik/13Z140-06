@@ -14,7 +14,7 @@
  */
  /*
  *---------------------------------------------------------------------------
- * (c) Copyright 2016 by MEN Mikro Elektronik GmbH, Nuernberg, Germany
+ * Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH
  ****************************************************************************/
 /*
 * This program is free software: you can redistribute it and/or modify
