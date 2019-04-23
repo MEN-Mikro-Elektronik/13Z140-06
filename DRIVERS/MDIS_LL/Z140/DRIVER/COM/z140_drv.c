@@ -404,10 +404,10 @@ static int32 Z140_SetStat(
 	INT32_OR_64 value32_or_64
 )
 {
-	char *func = "LL - Z140_SetStat";
 	int32 value = (int32)value32_or_64;		/* 32bit value */
 	MACCESS ma = llHdl->ma;
 	int32 error = ERR_SUCCESS;
+	DBGCMD( static const char func[] = "LL - Z140_SetStat" );
 
 	DBGWRT_1((DBH, "%s: ch=%d code=0x%04x value=0x%x\n",
 				func, ch, code, value));
@@ -510,12 +510,12 @@ static int32 Z140_GetStat(
 	INT32_OR_64 *value32_or_64P
 )
 {
-	char *func = "LL - Z140_GetStat";
 	int32 *valueP = (int32*)value32_or_64P;		/* pointer to 32bit value */
 	INT32_OR_64 *value64P = value32_or_64P;		/* stores 32/64bit pointer */
 	MACCESS ma = llHdl->ma;
 	int32 error = ERR_SUCCESS;
 	u_int32 read;
+	DBGCMD( static const char func[] = "LL - Z140_GetStat" );
 
 	DBGWRT_1((DBH, "%s: ch=%d code=0x%04x\n", func, ch, code));
 
