@@ -93,6 +93,6 @@
 /** \example z140_simp.c */
 /** \example z140_ctrl.c */
 
-/*! \page dummy
+/*! \page z140dummy MEN logo
 \menimages
 */
