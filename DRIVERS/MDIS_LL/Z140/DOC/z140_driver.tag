@@ -15,7 +15,7 @@
   </compound>
   <compound kind="file">
     <name>z140_ctrl.c</name>
-    <path>d:/work/LINUX/DRIVERS/MDIS_LL/Z140/TOOLS/Z140_CTRL/COM/</path>
+    <path>/opt/menlinux/DRIVERS/MDIS_LL/Z140/TOOLS/Z140_CTRL/COM/</path>
     <filename>z140__ctrl_8c</filename>
     <member kind="define">
       <type>#define</type>
@@ -62,12 +62,12 @@
   </compound>
   <compound kind="file">
     <name>z140_doc.c</name>
-    <path>d:/work/LINUX/DRIVERS/MDIS_LL/Z140/DRIVER/COM/</path>
+    <path>/opt/menlinux/DRIVERS/MDIS_LL/Z140/DRIVER/COM/</path>
     <filename>z140__doc_8c</filename>
   </compound>
   <compound kind="file">
     <name>z140_drv.c</name>
-    <path>d:/work/LINUX/DRIVERS/MDIS_LL/Z140/DRIVER/COM/</path>
+    <path>/opt/menlinux/DRIVERS/MDIS_LL/Z140/DRIVER/COM/</path>
     <filename>z140__drv_8c</filename>
     <class kind="struct">LL_HANDLE</class>
     <member kind="define">
@@ -259,7 +259,7 @@
   </compound>
   <compound kind="file">
     <name>z140_drv.h</name>
-    <path>d:/work/LINUX/INCLUDE/COM/MEN/</path>
+    <path>/opt/menlinux/INCLUDE/COM/MEN/</path>
     <filename>z140__drv_8h</filename>
     <member kind="define">
       <type>#define</type>
@@ -462,7 +462,7 @@
   </compound>
   <compound kind="file">
     <name>z140_simp.c</name>
-    <path>d:/work/LINUX/DRIVERS/MDIS_LL/Z140/EXAMPLE/Z140_SIMP/COM/</path>
+    <path>/opt/menlinux/DRIVERS/MDIS_LL/Z140/EXAMPLE/Z140_SIMP/COM/</path>
     <filename>z140__simp_8c</filename>
     <member kind="define">
       <type>#define</type>
@@ -560,8 +560,8 @@
     </member>
   </compound>
   <compound kind="page">
-    <name>dummy</name>
-    <title></title>
-    <filename>dummy</filename>
+    <name>z140dummy</name>
+    <title>MEN logo</title>
+    <filename>z140dummy</filename>
   </compound>
 </tagfile>
