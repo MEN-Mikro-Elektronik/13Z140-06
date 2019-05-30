@@ -5,50 +5,50 @@
 	<date>2017-03-30</date>
 	<revision>1.1</revision>
 	<docroot>DRIVERS/MDIS_LL/Z140/DOC/html/index.html</docroot>
-  <!-- Global settings -->
-  <settinglist>
-    <setting>
-      <name>DEBOUNCE_TIME</name>
-      <description>Debounce time between 0us and 255us in steps of 1us</description>
-      <type>U_INT32</type>
-      <defaultvalue>5</defaultvalue>
-      <minvalue>0</minvalue>
-      <maxvalue>255</maxvalue>
-    </setting>
-    <setting>
-      <name>MEAS_TOUT</name>
-      <description>Measurement timeout between 100ms and 10000ms in steps of 100ms</description>
-      <type>U_INT32</type>
-      <defaultvalue>100</defaultvalue>
-      <minvalue>100</minvalue>
-      <maxvalue>10000</maxvalue>
-    </setting>
-    <setting>
-      <name>ROLLING_TIME</name>
-      <description>Rolling time period between 10ms and 2550ms in steps of 10ms</description>
-      <type>U_INT32</type>
-      <defaultvalue>10</defaultvalue>
-      <minvalue>10</minvalue>
-      <maxvalue>2550</maxvalue>
-    </setting>
-    <setting>
-      <name>STANDSTILL_TIME</name>
-      <description>Standstill time period between 10ms and 2550ms in steps of 10ms</description>
-      <type>U_INT32</type>
-      <defaultvalue>20</defaultvalue>
-      <minvalue>10</minvalue>
-      <maxvalue>2550</maxvalue>
-    </setting>
-    <setting>
-      <name>DIRDET_TOUT</name>
-      <description>Direction detection timeout between 10ms and 2550ms in steps of 10ms</description>
-      <type>U_INT32</type>
-      <defaultvalue>100</defaultvalue>
-      <minvalue>10</minvalue>
-      <maxvalue>2550</maxvalue>
-    </setting>
-  </settinglist>
-  <!-- Models -->
+	<!-- Global settings -->
+	<settinglist>
+		<setting>
+			<name>DEBOUNCE_TIME</name>
+			<description>Debounce time between 0us and 255us in steps of 1us</description>
+			<type>U_INT32</type>
+			<defaultvalue>5</defaultvalue>
+			<minvalue>0</minvalue>
+			<maxvalue>255</maxvalue>
+		</setting>
+		<setting>
+			<name>MEAS_TOUT</name>
+			<description>Measurement timeout between 100ms and 10000ms in steps of 100ms</description>
+			<type>U_INT32</type>
+			<defaultvalue>100</defaultvalue>
+			<minvalue>100</minvalue>
+			<maxvalue>10000</maxvalue>
+		</setting>
+		<setting>
+			<name>ROLLING_TIME</name>
+			<description>Rolling time period between 10ms and 2550ms in steps of 10ms</description>
+			<type>U_INT32</type>
+			<defaultvalue>10</defaultvalue>
+			<minvalue>10</minvalue>
+			<maxvalue>2550</maxvalue>
+		</setting>
+		<setting>
+			<name>STANDSTILL_TIME</name>
+			<description>Standstill time period between 10ms and 2550ms in steps of 10ms</description>
+			<type>U_INT32</type>
+			<defaultvalue>20</defaultvalue>
+			<minvalue>10</minvalue>
+			<maxvalue>2550</maxvalue>
+		</setting>
+		<setting>
+			<name>DIRDET_TOUT</name>
+			<description>Direction detection timeout between 10ms and 2550ms in steps of 10ms</description>
+			<type>U_INT32</type>
+			<defaultvalue>100</defaultvalue>
+			<minvalue>10</minvalue>
+			<maxvalue>2550</maxvalue>
+		</setting>
+	</settinglist>
+	<!-- Models -->
 	<modellist>
 		<model>
 			<!-- standard model -->
@@ -56,15 +56,15 @@
 			<description>Frequency Counter in Chameleon FPGA</description>
 			<devnameprefix>FREQ</devnameprefix>
 			<devtype>MDIS</devtype>
-            <autoid>
-                <chamv2id>140</chamv2id>
-            </autoid>
-            <bbslot>
-                <bbismodel>CHAMELEON</bbismodel>
-            </bbslot>
-            <bbslot>
-                <bbismodel>CHAMELEON_PCITBL</bbismodel>
-            </bbslot>
+			<autoid>
+				<chamv2id>140</chamv2id>
+			</autoid>
+			<bbslot>
+				<bbismodel>CHAMELEON</bbismodel>
+			</bbslot>
+			<bbslot>
+				<bbismodel>CHAMELEON_PCITBL</bbismodel>
+			</bbslot>
 		</model>
 	</modellist>
 	<!-- Global software modules -->
@@ -75,17 +75,17 @@
 			<type>Low Level Driver</type>
 			<makefilepath>Z140/DRIVER/COM/driver.mak</makefilepath>
 		</swmodule>
-    <swmodule>
+		<swmodule>
 			<name>z140_simp</name>
 			<description>Simple example program for Frequency Counter driver</description>
-      <type>Driver Specific Tool</type>
-      <makefilepath>Z140/EXAMPLE/Z140_SIMP/COM/program.mak</makefilepath>
-    </swmodule>
+			<type>Driver Specific Tool</type>
+			<makefilepath>Z140/EXAMPLE/Z140_SIMP/COM/program.mak</makefilepath>
+		</swmodule>
 		<swmodule>
 			<name>z140_ctrl</name>
 			<description>Control tool for Frequency Counter driver</description>
-      <type>Driver Specific Tool</type>
-      <makefilepath>Z140/TOOLS/Z140_CTRL/COM/program.mak</makefilepath>
-    </swmodule>
+			<type>Driver Specific Tool</type>
+			<makefilepath>Z140/TOOLS/Z140_CTRL/COM/program.mak</makefilepath>
+		</swmodule>
 	</swmodulelist>
 </package>
