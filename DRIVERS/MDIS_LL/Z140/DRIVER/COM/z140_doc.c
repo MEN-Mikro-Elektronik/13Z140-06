@@ -3,8 +3,6 @@
 *        \file  z140_doc.c
 *
 *      \author  dieter.pfeuffer@men.de
-*        $Date: 2017/03/30 13:13:41 $
-*    $Revision: 1.1 $
 *
 *      \brief   User documentation for Z140 device driver
 *

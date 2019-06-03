@@ -1,8 +1,6 @@
 #***************************  M a k e f i l e  *******************************
 #
 #         Author: dieter.pfeuffer@men.de
-#          $Date: 2017/03/30 13:13:43 $
-#      $Revision: 1.1 $
 #
 #    Description: Makefile definitions for the Z140 driver
 #
@@ -23,8 +21,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 MAK_NAME=z140_sw
+# the next line is updated during the MDIS installation
+STAMPED_REVISION="13Z140-06_01_02-7-g7975d24-dirty_2019-05-30"
+
+DEF_REVISION=MAK_REVISION=$(STAMPED_REVISION)
 
 MAK_SWITCH=$(SW_PREFIX)MAC_MEM_MAPPED \
+		$(SW_PREFIX)$(DEF_REVISION) \
             $(SW_PREFIX)MAC_BYTESWAP
 
 MAK_LIBS=$(LIB_PREFIX)$(MEN_LIB_DIR)/desc$(LIB_SUFFIX)	\

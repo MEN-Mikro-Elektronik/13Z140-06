@@ -3,8 +3,6 @@
  *        \file  z140_reg.h
  *
  *      \author  dieter.pfeuffer@men.de
- *        $Date: 2017/03/30 13:13:51 $
- *    $Revision: 3.1 $
  * 
  *  	 \brief  Header file for 16Z140 IP core register defines
  *                      

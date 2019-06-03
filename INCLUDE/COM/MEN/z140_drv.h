@@ -3,8 +3,6 @@
  *        \file  z140_drv.h
  *
  *      \author  dieter.pfeuffer@men.de
- *        $Date: 2017/03/30 13:13:50 $
- *    $Revision: 3.1 $
  *
  *       \brief  Header file for Z140 driver containing
  *               Z140 function prototypes

@@ -6,8 +6,6 @@
 /*!
  *        \file  z140_ctrl.c
  *      \author  dieter.pfeuffer@men.de
- *        $Date: 2017/03/30 13:13:47 $
- *    $Revision: 1.1 $
  *
  *       \brief  Tool to control the Z140 Frequency Counter
  *
@@ -45,6 +43,8 @@
 #include <MEN/usr_utl.h>
 #include <MEN/mdis_err.h>
 #include <MEN/z140_drv.h>
+
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
 
 /*--------------------------------------+
 |   DEFINES                             |
@@ -95,7 +95,7 @@ static void usage(void)
 	printf("- The driver resets the distance counters and disables the test pattern\n");
 	printf("  generator, when the last file handle to the device will be closed.\n");
 	printf("\n");
-	printf("(c)Copyright 2016 by MEN Mikro Elektronik GmbH (%s)\n", __DATE__);
+	printf("Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH\n%s\n", IdentString);
 }
 
 /***************************************************************************/

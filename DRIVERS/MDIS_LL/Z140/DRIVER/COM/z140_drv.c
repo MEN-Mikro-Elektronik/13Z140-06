@@ -3,8 +3,6 @@
  *        \file  z140_drv.c
  *
  *      \author  dieter.pfeuffer@men.de 
- *        $Date: 2017/03/30 13:13:40 $
- *    $Revision: 1.1 $
  *
  *       \brief  Low-level driver for the 16Z140 Frequency Counter IP core
  *
@@ -90,6 +88,8 @@ typedef struct {
 /* include files which need LL_HANDLE */
 #include <MEN/ll_entry.h>       /* low-level driver jump table */
 #include <MEN/z140_drv.h>       /* Z140 driver header file      */
+
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
 
 /*-----------------------------------------+
 |  PROTOTYPES                              |
@@ -873,7 +873,7 @@ static int32 Z140_Info(
  */
 static char* Ident(void)
 {
-	return ("Z140 - Z140 low level driver: $Id: z140_drv.c,v 1.1 2017/03/30 13:13:40 DPfeuffer Exp $");
+	return( (char*) IdentString );
 }
 
 /********************************* Cleanup *********************************/

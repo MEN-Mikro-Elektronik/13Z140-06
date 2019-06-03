@@ -6,8 +6,6 @@
 /*!
  *        \file  z140_simp.c
  *      \author  dieter.pfeuffer@men.de
- *        $Date: 2017/03/30 13:13:45 $
- *    $Revision: 1.1 $
  *
  *      \brief   Simple example program for the Z140 Frequency Counter driver
  *
@@ -50,6 +48,8 @@
 #include <MEN/usr_oss.h>
 #include <MEN/z140_drv.h>
 
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
+
 /*--------------------------------------+
 |   DEFINES                             |
 +--------------------------------------*/
@@ -78,7 +78,7 @@ static void usage(void)
 	printf("    delay    delay between cycles in ms (default=100)\n");
 	printf("    l        print each output in a new line\n");
 	printf("\n");
-	printf("(c)Copyright 2016 by MEN Mikro Elektronik GmbH (%s)\n", __DATE__);
+	printf("Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH\n%s\n", IdentString);
 }
 
 /***************************************************************************/
