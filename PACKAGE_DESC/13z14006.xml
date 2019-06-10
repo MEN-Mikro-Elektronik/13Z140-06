@@ -2,8 +2,8 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="packagedesc.xsd">
 	<name>13z14006</name>
 	<description>MDIS5 driver package for MEN 16Z140 Frequency Counter</description>
-	<date>2017-03-30</date>
-	<revision>1.1</revision>
+	<date>2019-06-07</date>
+	<revision>13Z140-06_01_02-9-gf80fa19</revision>
 	<docroot>DRIVERS/MDIS_LL/Z140/DOC/html/index.html</docroot>
 	<!-- Global settings -->
 	<settinglist>
