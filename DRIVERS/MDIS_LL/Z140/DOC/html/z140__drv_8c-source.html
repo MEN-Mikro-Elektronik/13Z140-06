@@ -23,108 +23,110 @@
 <center>
 <a class="qindex" href="index.html">Main Page</a> &nbsp; <a class="qindex" href="annotated.html">Data Structures</a> &nbsp; <a class="qindex" href="files.html">File List</a> &nbsp; <a class="qindex" href="functions.html">Data Fields</a> &nbsp; <a class="qindex" href="globals.html">Globals</a> &nbsp; <a class="qindex" href="pages.html">Related Pages</a> &nbsp; <a class="qindex" href="examples.html">Examples</a> &nbsp; </center>
 <hr><h1>z140_drv.c</h1><a href="z140__drv_8c.html">Go to the documentation of this file.</a><div class="fragment"><pre>00001 <span class="comment">/*********************  P r o g r a m  -  M o d u l e ***********************/</span>
-00015  <span class="comment">/*</span>
-00016 <span class="comment"> *---------------------------------------------------------------------------</span>
-00017 <span class="comment"> * Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH</span>
-00018 <span class="comment"> ****************************************************************************/</span>
-00019 <span class="comment">/*</span>
-00020 <span class="comment">* This program is free software: you can redistribute it and/or modify</span>
-00021 <span class="comment">* it under the terms of the GNU General Public License as published by</span>
-00022 <span class="comment">* the Free Software Foundation, either version 2 of the License, or</span>
-00023 <span class="comment">* (at your option) any later version.</span>
-00024 <span class="comment">*</span>
-00025 <span class="comment">* This program is distributed in the hope that it will be useful,</span>
-00026 <span class="comment">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-00027 <span class="comment">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-00028 <span class="comment">* GNU General Public License for more details.</span>
-00029 <span class="comment">*</span>
-00030 <span class="comment">* You should have received a copy of the GNU General Public License</span>
-00031 <span class="comment">* along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-00032 <span class="comment">*/</span>
+00013  <span class="comment">/*</span>
+00014 <span class="comment"> *---------------------------------------------------------------------------</span>
+00015 <span class="comment"> * Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH</span>
+00016 <span class="comment"> ****************************************************************************/</span>
+00017 <span class="comment">/*</span>
+00018 <span class="comment">* This program is free software: you can redistribute it and/or modify</span>
+00019 <span class="comment">* it under the terms of the GNU General Public License as published by</span>
+00020 <span class="comment">* the Free Software Foundation, either version 2 of the License, or</span>
+00021 <span class="comment">* (at your option) any later version.</span>
+00022 <span class="comment">*</span>
+00023 <span class="comment">* This program is distributed in the hope that it will be useful,</span>
+00024 <span class="comment">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+00025 <span class="comment">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+00026 <span class="comment">* GNU General Public License for more details.</span>
+00027 <span class="comment">*</span>
+00028 <span class="comment">* You should have received a copy of the GNU General Public License</span>
+00029 <span class="comment">* along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+00030 <span class="comment">*/</span>
+00031 
+<a name="l00032"></a><a class="code" href="z140__drv_8c.html#a0">00032</a> <span class="preprocessor">#define _NO_LL_HANDLE        </span><span class="comment">/* ll_defs.h: don't define LL_HANDLE struct */</span>
 00033 
-<a name="l00034"></a><a class="code" href="z140__drv_8c.html#a0">00034</a> <span class="preprocessor">#define _NO_LL_HANDLE        </span><span class="comment">/* ll_defs.h: don't define LL_HANDLE struct */</span>
-00035 
-00036 <span class="comment">/*-----------------------------------------+</span>
-00037 <span class="comment">|  INCLUDES                                |</span>
-00038 <span class="comment">+-----------------------------------------*/</span>
-00039 <span class="preprocessor">#include &lt;MEN/men_typs.h&gt;</span>    <span class="comment">/* system dependent definitions   */</span>
-00040 <span class="preprocessor">#include &lt;MEN/maccess.h&gt;</span>     <span class="comment">/* hw access macros and types     */</span>
-00041 <span class="preprocessor">#include &lt;MEN/dbg.h&gt;</span>         <span class="comment">/* debug functions                */</span>
-00042 <span class="preprocessor">#include &lt;MEN/oss.h&gt;</span>         <span class="comment">/* oss functions                  */</span>
-00043 <span class="preprocessor">#include &lt;MEN/desc.h&gt;</span>        <span class="comment">/* descriptor functions           */</span>
-00044 <span class="preprocessor">#include &lt;MEN/mdis_api.h&gt;</span>    <span class="comment">/* MDIS global defs               */</span>
-00045 <span class="preprocessor">#include &lt;MEN/mdis_com.h&gt;</span>    <span class="comment">/* MDIS common defs               */</span>
-00046 <span class="preprocessor">#include &lt;MEN/mdis_err.h&gt;</span>    <span class="comment">/* MDIS error codes               */</span>
-00047 <span class="preprocessor">#include &lt;MEN/ll_defs.h&gt;</span>     <span class="comment">/* low-level driver definitions   */</span>
-00048 <span class="preprocessor">#include &lt;MEN/z140_reg.h&gt;</span>    <span class="comment">/* 16Z140 IP core reg definitions */</span>
-00049 <span class="preprocessor">#include &lt;MEN/chameleon.h&gt;</span>   <span class="comment">/* chameleon header               */</span>
-00050 
-00051 <span class="comment">/*-----------------------------------------+</span>
-00052 <span class="comment">|  DEFINES                                 |</span>
-00053 <span class="comment">+-----------------------------------------*/</span>
-00054 
-00055 <span class="comment">/* general defines */</span>
-<a name="l00056"></a><a class="code" href="z140__drv_8c.html#a1">00056</a> <span class="preprocessor">#define CH_NUMBER          1          </span>
-<a name="l00057"></a><a class="code" href="z140__drv_8c.html#a2">00057</a> <span class="preprocessor">#define USE_IRQ            FALSE      </span>
-<a name="l00058"></a><a class="code" href="z140__drv_8c.html#a3">00058</a> <span class="preprocessor">#define ADDRSPACE_COUNT    1          </span>
-<a name="l00059"></a><a class="code" href="z140__drv_8c.html#a4">00059</a> <span class="preprocessor">#define ADDRSPACE_SIZE     0x2C       </span>
-00061 <span class="preprocessor"></span><span class="comment">/* debug defines */</span>
-<a name="l00062"></a><a class="code" href="z140__drv_8c.html#a5">00062</a> <span class="preprocessor">#define DBG_MYLEVEL        llHdl-&gt;dbgLevel    </span>
-<a name="l00063"></a><a class="code" href="z140__drv_8c.html#a6">00063</a> <span class="preprocessor">#define DBH                llHdl-&gt;dbgHdl      </span>
-<a name="l00064"></a><a class="code" href="z140__drv_8c.html#a7">00064</a> <span class="preprocessor">#define OSH                llHdl-&gt;osHdl       </span>
-00066 <span class="preprocessor"></span><span class="comment">/* default defines (for internal pattern generator usage) */</span>
-<a name="l00067"></a><a class="code" href="z140__drv_8c.html#a8">00067</a> <span class="preprocessor">#define DEBOUNCE_TIME_DEF     5     </span>
-<a name="l00068"></a><a class="code" href="z140__drv_8c.html#a9">00068</a> <span class="preprocessor">#define MEAS_TOUT_DEF       100     </span>
-<a name="l00069"></a><a class="code" href="z140__drv_8c.html#a10">00069</a> <span class="preprocessor">#define ROLLING_TIME_DEF     10     </span>
-<a name="l00070"></a><a class="code" href="z140__drv_8c.html#a11">00070</a> <span class="preprocessor">#define STANDSTILL_TIME_DEF  20     </span>
-<a name="l00071"></a><a class="code" href="z140__drv_8c.html#a12">00071</a> <span class="preprocessor">#define DIRDET_TOUT_DEF     100     </span>
-00073 <span class="preprocessor"></span><span class="comment">/*-----------------------------------------+</span>
-00074 <span class="comment">|  TYPEDEFS                                |</span>
-00075 <span class="comment">+-----------------------------------------*/</span>
-00076 
-<a name="l00077"></a><a class="code" href="structLL__HANDLE.html">00077</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>{
-00078     <span class="comment">/* general */</span>
-<a name="l00079"></a><a class="code" href="structLL__HANDLE.html#m0">00079</a>     int32                   memAlloc;       
-<a name="l00080"></a><a class="code" href="structLL__HANDLE.html#m1">00080</a>     OSS_HANDLE              *osHdl;         
-<a name="l00081"></a><a class="code" href="structLL__HANDLE.html#m2">00081</a>     OSS_IRQ_HANDLE          *irqHdl;        
-<a name="l00082"></a><a class="code" href="structLL__HANDLE.html#m3">00082</a>     DESC_HANDLE             *descHdl;       
-<a name="l00083"></a><a class="code" href="structLL__HANDLE.html#m4">00083</a>     MACCESS                 ma;             
-<a name="l00084"></a><a class="code" href="structLL__HANDLE.html#m5">00084</a>     MDIS_IDENT_FUNCT_TBL    idFuncTbl;      
-00085     <span class="comment">/* debug */</span>
-<a name="l00086"></a><a class="code" href="structLL__HANDLE.html#m6">00086</a>     u_int32                 dbgLevel;       
-<a name="l00087"></a><a class="code" href="structLL__HANDLE.html#m7">00087</a>     DBG_HANDLE              *dbgHdl;        
-00088 } <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>;
-00089 
-00090 <span class="comment">/* include files which need LL_HANDLE */</span>
-00091 <span class="preprocessor">#include &lt;MEN/ll_entry.h&gt;</span>       <span class="comment">/* low-level driver jump table */</span>
-00092 <span class="preprocessor">#include &lt;<a class="code" href="z140__drv_8h.html">MEN/z140_drv.h</a>&gt;</span>       <span class="comment">/* Z140 driver header file      */</span>
+00034 <span class="comment">/*-----------------------------------------+</span>
+00035 <span class="comment">|  INCLUDES                                |</span>
+00036 <span class="comment">+-----------------------------------------*/</span>
+00037 <span class="preprocessor">#include &lt;MEN/men_typs.h&gt;</span>    <span class="comment">/* system dependent definitions   */</span>
+00038 <span class="preprocessor">#include &lt;MEN/maccess.h&gt;</span>     <span class="comment">/* hw access macros and types     */</span>
+00039 <span class="preprocessor">#include &lt;MEN/dbg.h&gt;</span>         <span class="comment">/* debug functions                */</span>
+00040 <span class="preprocessor">#include &lt;MEN/oss.h&gt;</span>         <span class="comment">/* oss functions                  */</span>
+00041 <span class="preprocessor">#include &lt;MEN/desc.h&gt;</span>        <span class="comment">/* descriptor functions           */</span>
+00042 <span class="preprocessor">#include &lt;MEN/mdis_api.h&gt;</span>    <span class="comment">/* MDIS global defs               */</span>
+00043 <span class="preprocessor">#include &lt;MEN/mdis_com.h&gt;</span>    <span class="comment">/* MDIS common defs               */</span>
+00044 <span class="preprocessor">#include &lt;MEN/mdis_err.h&gt;</span>    <span class="comment">/* MDIS error codes               */</span>
+00045 <span class="preprocessor">#include &lt;MEN/ll_defs.h&gt;</span>     <span class="comment">/* low-level driver definitions   */</span>
+00046 <span class="preprocessor">#include &lt;MEN/z140_reg.h&gt;</span>    <span class="comment">/* 16Z140 IP core reg definitions */</span>
+00047 <span class="preprocessor">#include &lt;MEN/chameleon.h&gt;</span>   <span class="comment">/* chameleon header               */</span>
+00048 
+00049 <span class="comment">/*-----------------------------------------+</span>
+00050 <span class="comment">|  DEFINES                                 |</span>
+00051 <span class="comment">+-----------------------------------------*/</span>
+00052 
+00053 <span class="comment">/* general defines */</span>
+<a name="l00054"></a><a class="code" href="z140__drv_8c.html#a1">00054</a> <span class="preprocessor">#define CH_NUMBER          1          </span>
+<a name="l00055"></a><a class="code" href="z140__drv_8c.html#a2">00055</a> <span class="preprocessor">#define USE_IRQ            FALSE      </span>
+<a name="l00056"></a><a class="code" href="z140__drv_8c.html#a3">00056</a> <span class="preprocessor">#define ADDRSPACE_COUNT    1          </span>
+<a name="l00057"></a><a class="code" href="z140__drv_8c.html#a4">00057</a> <span class="preprocessor">#define ADDRSPACE_SIZE     0x2C       </span>
+00059 <span class="preprocessor"></span><span class="comment">/* debug defines */</span>
+<a name="l00060"></a><a class="code" href="z140__drv_8c.html#a5">00060</a> <span class="preprocessor">#define DBG_MYLEVEL        llHdl-&gt;dbgLevel    </span>
+<a name="l00061"></a><a class="code" href="z140__drv_8c.html#a6">00061</a> <span class="preprocessor">#define DBH                llHdl-&gt;dbgHdl      </span>
+<a name="l00062"></a><a class="code" href="z140__drv_8c.html#a7">00062</a> <span class="preprocessor">#define OSH                llHdl-&gt;osHdl       </span>
+00064 <span class="preprocessor"></span><span class="comment">/* default defines (for internal pattern generator usage) */</span>
+<a name="l00065"></a><a class="code" href="z140__drv_8c.html#a8">00065</a> <span class="preprocessor">#define DEBOUNCE_TIME_DEF     5     </span>
+<a name="l00066"></a><a class="code" href="z140__drv_8c.html#a9">00066</a> <span class="preprocessor">#define MEAS_TOUT_DEF       100     </span>
+<a name="l00067"></a><a class="code" href="z140__drv_8c.html#a10">00067</a> <span class="preprocessor">#define ROLLING_TIME_DEF     10     </span>
+<a name="l00068"></a><a class="code" href="z140__drv_8c.html#a11">00068</a> <span class="preprocessor">#define STANDSTILL_TIME_DEF  20     </span>
+<a name="l00069"></a><a class="code" href="z140__drv_8c.html#a12">00069</a> <span class="preprocessor">#define DIRDET_TOUT_DEF     100     </span>
+00071 <span class="preprocessor"></span><span class="comment">/*-----------------------------------------+</span>
+00072 <span class="comment">|  TYPEDEFS                                |</span>
+00073 <span class="comment">+-----------------------------------------*/</span>
+00074 
+<a name="l00075"></a><a class="code" href="structLL__HANDLE.html">00075</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+00076     <span class="comment">/* general */</span>
+<a name="l00077"></a><a class="code" href="structLL__HANDLE.html#m0">00077</a>     int32                   memAlloc;       
+<a name="l00078"></a><a class="code" href="structLL__HANDLE.html#m1">00078</a>     OSS_HANDLE              *osHdl;         
+<a name="l00079"></a><a class="code" href="structLL__HANDLE.html#m2">00079</a>     OSS_IRQ_HANDLE          *irqHdl;        
+<a name="l00080"></a><a class="code" href="structLL__HANDLE.html#m3">00080</a>     DESC_HANDLE             *descHdl;       
+<a name="l00081"></a><a class="code" href="structLL__HANDLE.html#m4">00081</a>     MACCESS                 ma;             
+<a name="l00082"></a><a class="code" href="structLL__HANDLE.html#m5">00082</a>     MDIS_IDENT_FUNCT_TBL    idFuncTbl;      
+00083     <span class="comment">/* debug */</span>
+<a name="l00084"></a><a class="code" href="structLL__HANDLE.html#m6">00084</a>     u_int32                 dbgLevel;       
+<a name="l00085"></a><a class="code" href="structLL__HANDLE.html#m7">00085</a>     DBG_HANDLE              *dbgHdl;        
+00086 } <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>;
+00087 
+00088 <span class="comment">/* include files which need LL_HANDLE */</span>
+00089 <span class="preprocessor">#include &lt;MEN/ll_entry.h&gt;</span>       <span class="comment">/* low-level driver jump table */</span>
+00090 <span class="preprocessor">#include &lt;<a class="code" href="z140__drv_8h.html">MEN/z140_drv.h</a>&gt;</span>       <span class="comment">/* Z140 driver header file      */</span>
+00091 
+<a name="l00092"></a><a class="code" href="z140__drv_8c.html#a13">00092</a> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="z140__drv_8c.html#a13">IdentString</a>[]=MENT_XSTR(MAK_REVISION);
 00093 
 00094 <span class="comment">/*-----------------------------------------+</span>
 00095 <span class="comment">|  PROTOTYPES                              |</span>
 00096 <span class="comment">+-----------------------------------------*/</span>
-00097 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a13">Z140_Init</a>(DESC_SPEC *descSpec, OSS_HANDLE *osHdl,
+00097 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a14">Z140_Init</a>(DESC_SPEC *descSpec, OSS_HANDLE *osHdl,
 00098                         MACCESS *ma, OSS_SEM_HANDLE *devSemHdl,
 00099                         OSS_IRQ_HANDLE *irqHdl, <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> **llHdlP);
-00100 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a14">Z140_Exit</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> **llHdlP);
-00101 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a15">Z140_Read</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, int32 *value);
-00102 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a16">Z140_Write</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, int32 value);
-00103 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a17">Z140_SetStat</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl,int32 ch, int32 code,
+00100 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a15">Z140_Exit</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> **llHdlP);
+00101 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a16">Z140_Read</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, int32 *value);
+00102 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a17">Z140_Write</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, int32 value);
+00103 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a18">Z140_SetStat</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl,int32 ch, int32 code,
 00104                             INT32_OR_64 value32_or_64);
-00105 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a18">Z140_GetStat</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, int32 code,
+00105 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a19">Z140_GetStat</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, int32 code,
 00106                             INT32_OR_64 *value32_or64P);
-00107 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a19">Z140_BlockRead</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, <span class="keywordtype">void</span> *buf, int32 size,
+00107 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a20">Z140_BlockRead</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, <span class="keywordtype">void</span> *buf, int32 size,
 00108                             int32 *nbrRdBytesP);
-00109 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a20">Z140_BlockWrite</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, <span class="keywordtype">void</span> *buf, int32 size,
+00109 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a21">Z140_BlockWrite</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 ch, <span class="keywordtype">void</span> *buf, int32 size,
 00110                                 int32 *nbrWrBytesP);
-00111     <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a21">Z140_Irq</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl);
-00112 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a22">Z140_Info</a>(int32 infoType, ...);
-00113 <span class="keyword">static</span> <span class="keywordtype">char</span>* <a class="code" href="z140__drv_8c.html#a23">Ident</a>(<span class="keywordtype">void</span>);
-00114 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 retCode);
-00115 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a25">SetDebounceTime</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
-00116 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a26">SetMeasTout</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
-00117 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a27">SetRollingTime</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
-00118 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a28">SetStandstillTime</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
-00119 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a29">SetDirdetTout</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
+00111     <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a22">Z140_Irq</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl);
+00112 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a23">Z140_Info</a>(int32 infoType, ...);
+00113 <span class="keyword">static</span> <span class="keywordtype">char</span>* <a class="code" href="z140__drv_8c.html#a24">Ident</a>(<span class="keywordtype">void</span>);
+00114 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, int32 retCode);
+00115 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a26">SetDebounceTime</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
+00116 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a27">SetMeasTout</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
+00117 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a28">SetRollingTime</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
+00118 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a29">SetStandstillTime</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
+00119 <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a30">SetDirdetTout</a>(<a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl, u_int32 value);
 00120 
 00121 <span class="comment">/****************************** Z140_GetEntry ********************************/</span>
 00126 <span class="preprocessor">#ifdef _ONE_NAMESPACE_PER_DRIVER_</span>
@@ -132,25 +134,25 @@
 00128         LL_ENTRY* drvP
 00129     )
 00130 #<span class="keywordflow">else</span>
-<a name="l00131"></a><a class="code" href="z140__drv_8c.html#a30">00131</a>     <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="z140__drv_8h.html#a29">__Z140_GetEntry</a>(
+<a name="l00131"></a><a class="code" href="z140__drv_8c.html#a31">00131</a>     <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="z140__drv_8h.html#a29">__Z140_GetEntry</a>(
 00132         LL_ENTRY* drvP
 00133     )
 00134 #endif
 00135 {
-00136     drvP-&gt;init        = <a class="code" href="z140__drv_8c.html#a13">Z140_Init</a>;
-00137     drvP-&gt;exit        = <a class="code" href="z140__drv_8c.html#a14">Z140_Exit</a>;
-00138     drvP-&gt;read        = <a class="code" href="z140__drv_8c.html#a15">Z140_Read</a>;
-00139     drvP-&gt;write       = <a class="code" href="z140__drv_8c.html#a16">Z140_Write</a>;
-00140     drvP-&gt;blockRead   = <a class="code" href="z140__drv_8c.html#a19">Z140_BlockRead</a>;
-00141     drvP-&gt;blockWrite  = <a class="code" href="z140__drv_8c.html#a20">Z140_BlockWrite</a>;
-00142     drvP-&gt;setStat     = <a class="code" href="z140__drv_8c.html#a17">Z140_SetStat</a>;
-00143     drvP-&gt;getStat     = <a class="code" href="z140__drv_8c.html#a18">Z140_GetStat</a>;
-00144     drvP-&gt;irq         = <a class="code" href="z140__drv_8c.html#a21">Z140_Irq</a>;
-00145     drvP-&gt;info        = <a class="code" href="z140__drv_8c.html#a22">Z140_Info</a>;
+00136     drvP-&gt;init        = <a class="code" href="z140__drv_8c.html#a14">Z140_Init</a>;
+00137     drvP-&gt;exit        = <a class="code" href="z140__drv_8c.html#a15">Z140_Exit</a>;
+00138     drvP-&gt;read        = <a class="code" href="z140__drv_8c.html#a16">Z140_Read</a>;
+00139     drvP-&gt;write       = <a class="code" href="z140__drv_8c.html#a17">Z140_Write</a>;
+00140     drvP-&gt;blockRead   = <a class="code" href="z140__drv_8c.html#a20">Z140_BlockRead</a>;
+00141     drvP-&gt;blockWrite  = <a class="code" href="z140__drv_8c.html#a21">Z140_BlockWrite</a>;
+00142     drvP-&gt;setStat     = <a class="code" href="z140__drv_8c.html#a18">Z140_SetStat</a>;
+00143     drvP-&gt;getStat     = <a class="code" href="z140__drv_8c.html#a19">Z140_GetStat</a>;
+00144     drvP-&gt;irq         = <a class="code" href="z140__drv_8c.html#a22">Z140_Irq</a>;
+00145     drvP-&gt;info        = <a class="code" href="z140__drv_8c.html#a23">Z140_Info</a>;
 00146 }
 00147 
 00148 <span class="comment">/******************************** Z140_Init **********************************/</span>
-<a name="l00178"></a><a class="code" href="z140__drv_8c.html#a13">00178</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a13">Z140_Init</a>(
+<a name="l00178"></a><a class="code" href="z140__drv_8c.html#a14">00178</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a14">Z140_Init</a>(
 00179     DESC_SPEC       *descP,
 00180     OSS_HANDLE      *osHdl,
 00181     MACCESS         *ma,
@@ -192,7 +194,7 @@
 00217 <span class="comment">    |  init id function table       |</span>
 00218 <span class="comment">    +------------------------------*/</span>
 00219     <span class="comment">/* driver's ident function */</span>
-00220     llHdl-&gt;idFuncTbl.idCall[0].identCall = <a class="code" href="z140__drv_8c.html#a23">Ident</a>;
+00220     llHdl-&gt;idFuncTbl.idCall[0].identCall = <a class="code" href="z140__drv_8c.html#a24">Ident</a>;
 00221     <span class="comment">/* library's ident functions */</span>
 00222     llHdl-&gt;idFuncTbl.idCall[1].identCall = DESC_Ident;
 00223     llHdl-&gt;idFuncTbl.idCall[2].identCall = OSS_Ident;
@@ -209,13 +211,13 @@
 00234 <span class="comment">    |  scan descriptor              |</span>
 00235 <span class="comment">    +------------------------------*/</span>
 00236     <span class="keywordflow">if</span> ((error = DESC_Init(descP, osHdl, &amp;llHdl-&gt;descHdl)))
-00237         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00237         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00238 
 00239     <span class="comment">/* DEBUG_LEVEL_DESC */</span>
 00240     <span class="keywordflow">if</span> ((error = DESC_GetUInt32(llHdl-&gt;descHdl, OSS_DBG_DEFAULT,
 00241                                 &amp;value, <span class="stringliteral">"DEBUG_LEVEL_DESC"</span>)) &amp;&amp;
 00242         error != ERR_DESC_KEY_NOTFOUND)
-00243         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00243         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00244 
 00245     DESC_DbgLevelSet(llHdl-&gt;descHdl, value);
 00246 
@@ -223,56 +225,56 @@
 00248     <span class="keywordflow">if</span> ((error = DESC_GetUInt32(llHdl-&gt;descHdl, OSS_DBG_DEFAULT,
 00249                                 &amp;llHdl-&gt;dbgLevel, <span class="stringliteral">"DEBUG_LEVEL"</span>)) &amp;&amp;
 00250         error != ERR_DESC_KEY_NOTFOUND)
-00251         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00251         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00252 
 00253     <span class="comment">/* DEBOUNCE_TIME */</span>
 00254     <span class="keywordflow">if</span> ((error = DESC_GetUInt32(llHdl-&gt;descHdl, <a class="code" href="z140__drv_8c.html#a8">DEBOUNCE_TIME_DEF</a>,
 00255         &amp;debounceTime, <span class="stringliteral">"DEBOUNCE_TIME"</span>)) &amp;&amp;
 00256         error != ERR_DESC_KEY_NOTFOUND)
-00257         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00257         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00258 
 00259     <span class="comment">/* MEAS_TOUT */</span>
 00260     <span class="keywordflow">if</span> ((error = DESC_GetUInt32(llHdl-&gt;descHdl, <a class="code" href="z140__drv_8c.html#a9">MEAS_TOUT_DEF</a>,
 00261         &amp;measTout, <span class="stringliteral">"MEAS_TOUT"</span>)) &amp;&amp;
 00262         error != ERR_DESC_KEY_NOTFOUND)
-00263         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00263         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00264 
 00265     <span class="comment">/* ROLLING_TIME */</span>
 00266     <span class="keywordflow">if</span> ((error = DESC_GetUInt32(llHdl-&gt;descHdl, <a class="code" href="z140__drv_8c.html#a10">ROLLING_TIME_DEF</a>,
 00267         &amp;rollingTime, <span class="stringliteral">"ROLLING_TIME"</span>)) &amp;&amp;
 00268         error != ERR_DESC_KEY_NOTFOUND)
-00269         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00269         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00270 
 00271     <span class="comment">/* STANDSTILL_TIME */</span>
 00272     <span class="keywordflow">if</span> ((error = DESC_GetUInt32(llHdl-&gt;descHdl, <a class="code" href="z140__drv_8c.html#a11">STANDSTILL_TIME_DEF</a>,
 00273         &amp;standstillTime, <span class="stringliteral">"STANDSTILL_TIME"</span>)) &amp;&amp;
 00274         error != ERR_DESC_KEY_NOTFOUND)
-00275         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00275         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00276 
 00277     <span class="comment">/* DIRDET_TOUT */</span>
 00278     <span class="keywordflow">if</span> ((error = DESC_GetUInt32(llHdl-&gt;descHdl, <a class="code" href="z140__drv_8c.html#a12">DIRDET_TOUT_DEF</a>,
 00279         &amp;dirdetTout, <span class="stringliteral">"DIRDET_TOUT"</span>)) &amp;&amp;
 00280         error != ERR_DESC_KEY_NOTFOUND)
-00281         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00281         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00282 
 00283     <span class="comment">/*------------------------------+</span>
 00284 <span class="comment">    |  init hardware                |</span>
 00285 <span class="comment">    +------------------------------*/</span>
 00286     <span class="comment">/* configure frequency counter IP core */</span>
-00287     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a25">SetDebounceTime</a>(llHdl, debounceTime)))
-00288         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00287     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a26">SetDebounceTime</a>(llHdl, debounceTime)))
+00288         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00289 
-00290     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a26">SetMeasTout</a>(llHdl, measTout)))
-00291         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00290     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a27">SetMeasTout</a>(llHdl, measTout)))
+00291         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00292 
-00293     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a27">SetRollingTime</a>(llHdl, rollingTime)))
-00294         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00293     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a28">SetRollingTime</a>(llHdl, rollingTime)))
+00294         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00295 
-00296     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a28">SetStandstillTime</a>(llHdl, standstillTime)))
-00297         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00296     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a29">SetStandstillTime</a>(llHdl, standstillTime)))
+00297         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00298 
-00299     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a29">SetDirdetTout</a>(llHdl, dirdetTout)))
-00300         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error));
+00299     <span class="keywordflow">if</span> ((error = <a class="code" href="z140__drv_8c.html#a30">SetDirdetTout</a>(llHdl, dirdetTout)))
+00300         <span class="keywordflow">return</span> (<a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error));
 00301 
 00302     <span class="comment">/* reset distance values, disable test pattern */</span>
 00303     MWRITE_D32(llHdl-&gt;ma, Z140R_COMMAND, Z140R_CMD_RST_DIST);
@@ -283,7 +285,7 @@
 00308 }
 00309 
 00310 <span class="comment">/****************************** Z140_Exit ************************************/</span>
-<a name="l00319"></a><a class="code" href="z140__drv_8c.html#a14">00319</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a14">Z140_Exit</a>(
+<a name="l00319"></a><a class="code" href="z140__drv_8c.html#a15">00319</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a15">Z140_Exit</a>(
 00320     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> **llHdlP
 00321 )
 00322 {
@@ -302,13 +304,13 @@
 00335 <span class="comment">    |  clean up memory              |</span>
 00336 <span class="comment">    +------------------------------*/</span>
 00337     *llHdlP = NULL;     <span class="comment">/* set low-level driver handle to NULL */</span>
-00338     error = <a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(llHdl, error);
+00338     error = <a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(llHdl, error);
 00339 
 00340     <span class="keywordflow">return</span> (error);
 00341 }
 00342 
 00343 <span class="comment">/****************************** Z140_Read ************************************/</span>
-<a name="l00354"></a><a class="code" href="z140__drv_8c.html#a15">00354</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a15">Z140_Read</a>(
+<a name="l00354"></a><a class="code" href="z140__drv_8c.html#a16">00354</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a16">Z140_Read</a>(
 00355     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>  *llHdl,
 00356     int32      ch,
 00357     int32      *valueP
@@ -320,7 +322,7 @@
 00363 }
 00364 
 00365 <span class="comment">/****************************** Z140_Write ***********************************/</span>
-<a name="l00376"></a><a class="code" href="z140__drv_8c.html#a16">00376</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a16">Z140_Write</a>(
+<a name="l00376"></a><a class="code" href="z140__drv_8c.html#a17">00376</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a17">Z140_Write</a>(
 00377     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>  *llHdl,
 00378     int32      ch,
 00379     int32      value
@@ -332,7 +334,7 @@
 00385 }
 00386 
 00387 <span class="comment">/****************************** Z140_SetStat *********************************/</span>
-<a name="l00400"></a><a class="code" href="z140__drv_8c.html#a17">00400</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a17">Z140_SetStat</a>(
+<a name="l00400"></a><a class="code" href="z140__drv_8c.html#a18">00400</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a18">Z140_SetStat</a>(
 00401     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>   *llHdl,
 00402     int32       code,
 00403     int32       ch,
@@ -366,23 +368,23 @@
 00431 <span class="comment">        |  config frequency counter |</span>
 00432 <span class="comment">        +--------------------------*/</span>
 00433         <span class="keywordflow">case</span> <a class="code" href="z140__drv_8h.html#a0">Z140_DEBOUNCET</a>:
-00434             error = <a class="code" href="z140__drv_8c.html#a25">SetDebounceTime</a>(llHdl, value);
+00434             error = <a class="code" href="z140__drv_8c.html#a26">SetDebounceTime</a>(llHdl, value);
 00435             <span class="keywordflow">break</span>;
 00436 
 00437         <span class="keywordflow">case</span> <a class="code" href="z140__drv_8h.html#a1">Z140_MEAS_TOUT</a>:
-00438             error = <a class="code" href="z140__drv_8c.html#a26">SetMeasTout</a>(llHdl, value);
+00438             error = <a class="code" href="z140__drv_8c.html#a27">SetMeasTout</a>(llHdl, value);
 00439             <span class="keywordflow">break</span>;
 00440 
 00441         <span class="keywordflow">case</span> <a class="code" href="z140__drv_8h.html#a2">Z140_ROLLINGT</a>:
-00442             error = <a class="code" href="z140__drv_8c.html#a27">SetRollingTime</a>(llHdl, value);
+00442             error = <a class="code" href="z140__drv_8c.html#a28">SetRollingTime</a>(llHdl, value);
 00443             <span class="keywordflow">break</span>;
 00444 
 00445         <span class="keywordflow">case</span> <a class="code" href="z140__drv_8h.html#a3">Z140_STANDSTILLT</a>:
-00446             error = <a class="code" href="z140__drv_8c.html#a28">SetStandstillTime</a>(llHdl, value);
+00446             error = <a class="code" href="z140__drv_8c.html#a29">SetStandstillTime</a>(llHdl, value);
 00447             <span class="keywordflow">break</span>;
 00448 
 00449         <span class="keywordflow">case</span> <a class="code" href="z140__drv_8h.html#a4">Z140_DIRDET_TOUT</a>:
-00450             error = <a class="code" href="z140__drv_8c.html#a29">SetDirdetTout</a>(llHdl, value);
+00450             error = <a class="code" href="z140__drv_8c.html#a30">SetDirdetTout</a>(llHdl, value);
 00451             <span class="keywordflow">break</span>;
 00452         <span class="comment">/*--------------------------+</span>
 00453 <span class="comment">        |  reset distance counters  |</span>
@@ -423,7 +425,7 @@
 00488 }
 00489 
 00490 <span class="comment">/****************************** Z140_GetStat *********************************/</span>
-<a name="l00506"></a><a class="code" href="z140__drv_8c.html#a18">00506</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a18">Z140_GetStat</a>(
+<a name="l00506"></a><a class="code" href="z140__drv_8c.html#a19">00506</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a19">Z140_GetStat</a>(
 00507     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>   *llHdl,
 00508     int32       code,
 00509     int32       ch,
@@ -582,7 +584,7 @@
 00662 }
 00663 
 00664 <span class="comment">/******************************* Z140_BlockRead ******************************/</span>
-<a name="l00677"></a><a class="code" href="z140__drv_8c.html#a19">00677</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a19">Z140_BlockRead</a>(
+<a name="l00677"></a><a class="code" href="z140__drv_8c.html#a20">00677</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a20">Z140_BlockRead</a>(
 00678     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl,
 00679     int32     ch,
 00680     <span class="keywordtype">void</span>      *buf,
@@ -599,7 +601,7 @@
 00691 }
 00692 
 00693 <span class="comment">/****************************** Z140_BlockWrite *****************************/</span>
-<a name="l00706"></a><a class="code" href="z140__drv_8c.html#a20">00706</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a20">Z140_BlockWrite</a>(
+<a name="l00706"></a><a class="code" href="z140__drv_8c.html#a21">00706</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a21">Z140_BlockWrite</a>(
 00707     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl,
 00708     int32     ch,
 00709     <span class="keywordtype">void</span>      *buf,
@@ -616,7 +618,7 @@
 00720 }
 00721 
 00722 <span class="comment">/****************************** Z140_Irq ************************************/</span>
-<a name="l00736"></a><a class="code" href="z140__drv_8c.html#a21">00736</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a21">Z140_Irq</a>(
+<a name="l00736"></a><a class="code" href="z140__drv_8c.html#a22">00736</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a22">Z140_Irq</a>(
 00737     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl
 00738 )
 00739 {
@@ -624,7 +626,7 @@
 00741 }
 00742 
 00743 <span class="comment">/****************************** Z140_Info ***********************************/</span>
-<a name="l00781"></a><a class="code" href="z140__drv_8c.html#a22">00781</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a22">Z140_Info</a>(
+<a name="l00781"></a><a class="code" href="z140__drv_8c.html#a23">00781</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a23">Z140_Info</a>(
 00782     int32 infoType,
 00783     ...
 00784 )
@@ -713,13 +715,13 @@
 00867 }
 00868 
 00869 <span class="comment">/******************************** Ident ************************************/</span>
-<a name="l00874"></a><a class="code" href="z140__drv_8c.html#a23">00874</a> <span class="keyword">static</span> <span class="keywordtype">char</span>* <a class="code" href="z140__drv_8c.html#a23">Ident</a>(<span class="keywordtype">void</span>)
+<a name="l00874"></a><a class="code" href="z140__drv_8c.html#a24">00874</a> <span class="keyword">static</span> <span class="keywordtype">char</span>* <a class="code" href="z140__drv_8c.html#a24">Ident</a>(<span class="keywordtype">void</span>)
 00875 {
-00876     <span class="keywordflow">return</span> (<span class="stringliteral">"Z140 - Z140 low level driver: $Id: z140_drv.c,v 1.1 2017/03/30 13:13:40 DPfeuffer Exp $"</span>);
+00876     <span class="keywordflow">return</span>( (<span class="keywordtype">char</span>*) <a class="code" href="z140__drv_8c.html#a13">IdentString</a> );
 00877 }
 00878 
 00879 <span class="comment">/********************************* Cleanup *********************************/</span>
-<a name="l00889"></a><a class="code" href="z140__drv_8c.html#a24">00889</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a24">Cleanup</a>(
+<a name="l00889"></a><a class="code" href="z140__drv_8c.html#a25">00889</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a25">Cleanup</a>(
 00890     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a> *llHdl,
 00891     int32     retCode
 00892 )
@@ -745,7 +747,7 @@
 00912 }
 00913 
 00914 <span class="comment">/******************************************************************************/</span>
-<a name="l00922"></a><a class="code" href="z140__drv_8c.html#a25">00922</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a25">SetDebounceTime</a>(
+<a name="l00922"></a><a class="code" href="z140__drv_8c.html#a26">00922</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a26">SetDebounceTime</a>(
 00923     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>   *llHdl,
 00924     u_int32     value
 00925 )
@@ -763,7 +765,7 @@
 00937 }
 00938 
 00939 <span class="comment">/******************************************************************************/</span>
-<a name="l00947"></a><a class="code" href="z140__drv_8c.html#a26">00947</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a26">SetMeasTout</a>(
+<a name="l00947"></a><a class="code" href="z140__drv_8c.html#a27">00947</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a27">SetMeasTout</a>(
 00948     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>   *llHdl,
 00949     u_int32     value
 00950 )
@@ -781,7 +783,7 @@
 00962 }
 00963 
 00964 <span class="comment">/******************************************************************************/</span>
-<a name="l00972"></a><a class="code" href="z140__drv_8c.html#a27">00972</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a27">SetRollingTime</a>(
+<a name="l00972"></a><a class="code" href="z140__drv_8c.html#a28">00972</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a28">SetRollingTime</a>(
 00973     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>   *llHdl,
 00974     u_int32     value
 00975 )
@@ -799,7 +801,7 @@
 00987 }
 00988 
 00989 <span class="comment">/******************************************************************************/</span>
-<a name="l00997"></a><a class="code" href="z140__drv_8c.html#a28">00997</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a28">SetStandstillTime</a>(
+<a name="l00997"></a><a class="code" href="z140__drv_8c.html#a29">00997</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a29">SetStandstillTime</a>(
 00998     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>   *llHdl,
 00999     u_int32     value
 01000 )
@@ -817,7 +819,7 @@
 01012 }
 01013 
 01014 <span class="comment">/******************************************************************************/</span>
-<a name="l01022"></a><a class="code" href="z140__drv_8c.html#a29">01022</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a29">SetDirdetTout</a>(
+<a name="l01022"></a><a class="code" href="z140__drv_8c.html#a30">01022</a> <span class="keyword">static</span> int32 <a class="code" href="z140__drv_8c.html#a30">SetDirdetTout</a>(
 01023     <a class="code" href="structLL__HANDLE.html">LL_HANDLE</a>   *llHdl,
 01024     u_int32     value
 01025 )
@@ -841,8 +843,7 @@
 <div class="footer">
 <!-- Footer -->
 	<p class="footer">
-	Generated for Z140 MDIS Driver using <a href="http://www.doxygen.org">doxygen</a>.<br>
-	Copyright &copy; 2019 <a href="http://www.men.de">MEN Mikro Elektronik GmbH</a>. All Rights Reserved.
+	Generated for Z140 MDIS Driver using <a href="http://www.doxygen.org">doxygen</a>. All Rights Reserved.
 	</p>
 </div>
 

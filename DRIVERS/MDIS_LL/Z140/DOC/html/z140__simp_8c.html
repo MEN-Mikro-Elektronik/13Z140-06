@@ -34,21 +34,21 @@
 <tr><td nowrap align=right valign=top>#define&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a1">ERR_PARAM</a>&nbsp;&nbsp;&nbsp;1</td></tr>
 <tr><td nowrap align=right valign=top>#define&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a2">ERR_FUNC</a>&nbsp;&nbsp;&nbsp;2</td></tr>
 <tr><td colspan=2><br><h2>Functions</h2></td></tr>
-<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a3">usage</a> (void)</td></tr>
-<tr><td>&nbsp;</td><td><em class="mdesc">Print program usage.</em> <a href="#a3"></a><em></em><br><br></td></tr>
-<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a4">PrintError</a> (char *info)</td></tr>
-<tr><td>&nbsp;</td><td><em class="mdesc">Print MDIS error message.</em> <a href="#a4"></a><em></em><br><br></td></tr>
-<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a5">MeasStat</a> (char *info, char **statStr)</td></tr>
-<tr><td>&nbsp;</td><td><em class="mdesc">Measurement status helper function.</em> <a href="#a5"></a><em></em><br><br></td></tr>
-<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a6">main</a> (int argc, char *argv[])</td></tr>
-<tr><td>&nbsp;</td><td><em class="mdesc">Program main function.</em> <a href="#a6"></a><em></em><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a4">usage</a> (void)</td></tr>
+<tr><td>&nbsp;</td><td><em class="mdesc">Print program usage.</em> <a href="#a4"></a><em></em><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a5">PrintError</a> (char *info)</td></tr>
+<tr><td>&nbsp;</td><td><em class="mdesc">Print MDIS error message.</em> <a href="#a5"></a><em></em><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a6">MeasStat</a> (char *info, char **statStr)</td></tr>
+<tr><td>&nbsp;</td><td><em class="mdesc">Measurement status helper function.</em> <a href="#a6"></a><em></em><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a7">main</a> (int argc, char *argv[])</td></tr>
+<tr><td>&nbsp;</td><td><em class="mdesc">Program main function.</em> <a href="#a7"></a><em></em><br><br></td></tr>
+<tr><td colspan=2><br><h2>Variables</h2></td></tr>
+<tr><td nowrap align=right valign=top>const char&nbsp;</td><td valign=bottom><a class="el" href="z140__simp_8c.html#a3">IdentString</a> [] = MENT_XSTR(MAK_REVISION)</td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Simple example program for the Z140 Frequency Counter driver.
 <p>
-<dl compact><dt><b>Author:</b></dt><dd><a href="mailto:dieter.pfeuffer@men.de">dieter.pfeuffer@men.de</a> <dl compact><dt><b>Date</b></dt><dd>2017/03/30 13:13:45 </dd></dl>
-<dl compact><dt><b>Revision</b></dt><dd>1.1 </dd></dl>
-</dd></dl>
+<dl compact><dt><b>Author:</b></dt><dd><a href="mailto:dieter.pfeuffer@men.de">dieter.pfeuffer@men.de</a></dd></dl>
 <p>
 The program resets the forward and backward distance counters, shows the driver configuration (device descriptor parameters or defaults) and gets the measurement results in a loop until keypress. The delay between the loop cycles can be configurred.<p>
 Required: libraries: mdis_api, usr_oss <dl compact><dt><b>Preprocessor Switches:</b></dt><dd>(none)</dd></dl>
@@ -134,7 +134,7 @@ Referenced by <a class="el" href="z140__ctrl_8c-source.html#l00109">main()</a>. 
   </tr>
 </table>
 <hr><h2>Function Documentation</h2>
-<a name="a6" doxytag="z140_simp.c::main"></a><p>
+<a name="a7" doxytag="z140_simp.c::main"></a><p>
 <table width="100%" cellpadding="2" cellspacing="0" border="0">
   <tr>
     <td class="md">
@@ -183,10 +183,10 @@ Program main function.
 <p>
 Definition at line <a class="el" href="z140__simp_8c-source.html#l00092">92</a> of file <a class="el" href="z140__simp_8c-source.html">z140_simp.c</a>.
 <p>
-References <a class="el" href="z140__simp_8c-source.html#l00056">ERR_OK</a>, <a class="el" href="z140__simp_8c-source.html#l00057">ERR_PARAM</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a9">M_close()</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat()</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a4">M_open()</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat()</a>, <a class="el" href="z140__drv_8h-source.html#l00116">MDIS_PATH</a>, <a class="el" href="z140__ctrl_8c-source.html#l00391">MeasStat()</a>, <a class="el" href="z140__ctrl_8c-source.html#l00377">PrintError()</a>, <a class="el" href="z140__simp_8c-source.html#l00070">usage()</a>, <a class="el" href="z140__drv_8h-source.html#l00049">Z140_DEBOUNCET</a>, <a class="el" href="z140__drv_8h-source.html#l00053">Z140_DIRDET_TOUT</a>, <a class="el" href="z140__drv_8h-source.html#l00059">Z140_DISTANCE_BWD</a>, <a class="el" href="z140__drv_8h-source.html#l00058">Z140_DISTANCE_FWD</a>, <a class="el" href="z140__drv_8h-source.html#l00054">Z140_DISTRST</a>, <a class="el" href="z140__drv_8h-source.html#l00050">Z140_MEAS_TOUT</a>, <a class="el" href="z140__drv_8h-source.html#l00071">Z140_PER_NS</a>, <a class="el" href="z140__drv_8h-source.html#l00070">Z140_PER_US</a>, <a class="el" href="z140__drv_8h-source.html#l00056">Z140_PERIOD_A</a>, <a class="el" href="z140__drv_8h-source.html#l00057">Z140_PERIOD_B</a>, <a class="el" href="z140__drv_8h-source.html#l00051">Z140_ROLLINGT</a>, <a class="el" href="z140__drv_8h-source.html#l00077">Z140_ST_DIR_BWD</a>, <a class="el" href="z140__drv_8h-source.html#l00076">Z140_ST_DIR_FWD</a>, <a class="el" href="z140__drv_8h-source.html#l00078">Z140_ST_DIR_INVALID</a>, <a class="el" href="z140__drv_8h-source.html#l00074">Z140_ST_ROLLING</a>, <a class="el" href="z140__drv_8h-source.html#l00075">Z140_ST_STANDSTILL</a>, <a class="el" href="z140__drv_8h-source.html#l00052">Z140_STANDSTILLT</a>, and <a class="el" href="z140__drv_8h-source.html#l00060">Z140_STATUS</a>.    </td>
+References <a class="el" href="z140__simp_8c-source.html#l00056">ERR_OK</a>, <a class="el" href="z140__simp_8c-source.html#l00057">ERR_PARAM</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a9">M_close()</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat()</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a4">M_open()</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat()</a>, <a class="el" href="z140__drv_8h-source.html#l00114">MDIS_PATH</a>, <a class="el" href="z140__ctrl_8c-source.html#l00391">MeasStat()</a>, <a class="el" href="z140__ctrl_8c-source.html#l00377">PrintError()</a>, <a class="el" href="z140__simp_8c-source.html#l00070">usage()</a>, <a class="el" href="z140__drv_8h-source.html#l00047">Z140_DEBOUNCET</a>, <a class="el" href="z140__drv_8h-source.html#l00051">Z140_DIRDET_TOUT</a>, <a class="el" href="z140__drv_8h-source.html#l00057">Z140_DISTANCE_BWD</a>, <a class="el" href="z140__drv_8h-source.html#l00056">Z140_DISTANCE_FWD</a>, <a class="el" href="z140__drv_8h-source.html#l00052">Z140_DISTRST</a>, <a class="el" href="z140__drv_8h-source.html#l00048">Z140_MEAS_TOUT</a>, <a class="el" href="z140__drv_8h-source.html#l00069">Z140_PER_NS</a>, <a class="el" href="z140__drv_8h-source.html#l00068">Z140_PER_US</a>, <a class="el" href="z140__drv_8h-source.html#l00054">Z140_PERIOD_A</a>, <a class="el" href="z140__drv_8h-source.html#l00055">Z140_PERIOD_B</a>, <a class="el" href="z140__drv_8h-source.html#l00049">Z140_ROLLINGT</a>, <a class="el" href="z140__drv_8h-source.html#l00075">Z140_ST_DIR_BWD</a>, <a class="el" href="z140__drv_8h-source.html#l00074">Z140_ST_DIR_FWD</a>, <a class="el" href="z140__drv_8h-source.html#l00076">Z140_ST_DIR_INVALID</a>, <a class="el" href="z140__drv_8h-source.html#l00072">Z140_ST_ROLLING</a>, <a class="el" href="z140__drv_8h-source.html#l00073">Z140_ST_STANDSTILL</a>, <a class="el" href="z140__drv_8h-source.html#l00050">Z140_STANDSTILLT</a>, and <a class="el" href="z140__drv_8h-source.html#l00058">Z140_STATUS</a>.    </td>
   </tr>
 </table>
-<a name="a5" doxytag="z140_simp.c::MeasStat"></a><p>
+<a name="a6" doxytag="z140_simp.c::MeasStat"></a><p>
 <table width="100%" cellpadding="2" cellspacing="0" border="0">
   <tr>
     <td class="md">
@@ -235,10 +235,10 @@ Measurement status helper function.
 <p>
 Definition at line <a class="el" href="z140__simp_8c-source.html#l00273">273</a> of file <a class="el" href="z140__simp_8c-source.html">z140_simp.c</a>.
 <p>
-References <a class="el" href="z140__simp_8c-source.html#l00058">ERR_FUNC</a>, <a class="el" href="z140__simp_8c-source.html#l00056">ERR_OK</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/m__errstr_8c.html#a0">M_errstring()</a>, <a class="el" href="z140__drv_8h-source.html#l00083">Z140_ERR_NO_DATA</a>, <a class="el" href="z140__drv_8h-source.html#l00081">Z140_ERR_PER_INVALID</a>, and <a class="el" href="z140__drv_8h-source.html#l00082">Z140_ERR_PH_VIOLATION</a>.    </td>
+References <a class="el" href="z140__simp_8c-source.html#l00058">ERR_FUNC</a>, <a class="el" href="z140__simp_8c-source.html#l00056">ERR_OK</a>, <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/m__errstr_8c.html#a0">M_errstring()</a>, <a class="el" href="z140__drv_8h-source.html#l00081">Z140_ERR_NO_DATA</a>, <a class="el" href="z140__drv_8h-source.html#l00079">Z140_ERR_PER_INVALID</a>, and <a class="el" href="z140__drv_8h-source.html#l00080">Z140_ERR_PH_VIOLATION</a>.    </td>
   </tr>
 </table>
-<a name="a4" doxytag="z140_simp.c::PrintError"></a><p>
+<a name="a5" doxytag="z140_simp.c::PrintError"></a><p>
 <table width="100%" cellpadding="2" cellspacing="0" border="0">
   <tr>
     <td class="md">
@@ -280,7 +280,7 @@ Definition at line <a class="el" href="z140__simp_8c-source.html#l00259">259</a>
 References <a class="el" href="z140__simp_8c-source.html#l00058">ERR_FUNC</a>, and <a class="elRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/m__errstr_8c.html#a0">M_errstring()</a>.    </td>
   </tr>
 </table>
-<a name="a3" doxytag="z140_simp.c::usage"></a><p>
+<a name="a4" doxytag="z140_simp.c::usage"></a><p>
 <table width="100%" cellpadding="2" cellspacing="0" border="0">
   <tr>
     <td class="md">
@@ -313,7 +313,36 @@ Print program usage.
 <p>
 Definition at line <a class="el" href="z140__simp_8c-source.html#l00070">70</a> of file <a class="el" href="z140__simp_8c-source.html">z140_simp.c</a>.
 <p>
+References <a class="el" href="z140__simp_8c-source.html#l00051">IdentString</a>.
+<p>
 Referenced by <a class="el" href="z140__ctrl_8c-source.html#l00109">main()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Variable Documentation</h2>
+<a name="a3" doxytag="z140_simp.c::IdentString"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> const char IdentString[] = MENT_XSTR(MAK_REVISION)<code> [static]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definition at line <a class="el" href="z140__simp_8c-source.html#l00051">51</a> of file <a class="el" href="z140__simp_8c-source.html">z140_simp.c</a>.
+<p>
+Referenced by <a class="el" href="z140__simp_8c-source.html#l00070">usage()</a>.    </td>
   </tr>
 </table>
 
@@ -323,8 +352,7 @@ Referenced by <a class="el" href="z140__ctrl_8c-source.html#l00109">main()</a>. 
 <div class="footer">
 <!-- Footer -->
 	<p class="footer">
-	Generated for Z140 MDIS Driver using <a href="http://www.doxygen.org">doxygen</a>.<br>
-	Copyright &copy; 2019 <a href="http://www.men.de">MEN Mikro Elektronik GmbH</a>. All Rights Reserved.
+	Generated for Z140 MDIS Driver using <a href="http://www.doxygen.org">doxygen</a>. All Rights Reserved.
 	</p>
 </div>
 

@@ -59,6 +59,8 @@
 <span class="preprocessor">#include &lt;MEN/mdis_err.h&gt;</span>
 <span class="preprocessor">#include &lt;<a class="code" href="z140__drv_8h.html">MEN/z140_drv.h</a>&gt;</span>
 
+<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> IdentString[]=MENT_XSTR(MAK_REVISION);
+
 <span class="comment">/*--------------------------------------+</span>
 <span class="comment">|   DEFINES                             |</span>
 <span class="comment">+--------------------------------------*/</span>
@@ -73,12 +75,12 @@
 <span class="comment">/*--------------------------------------+</span>
 <span class="comment">|  PROTOTYPES                           |</span>
 <span class="comment">+--------------------------------------*/</span>
-<span class="keyword">static</span> <span class="keywordtype">void</span> <a name="a0"></a><a class="code" href="z140__simp_8c.html#a3">usage</a>(<span class="keywordtype">void</span>);
-<span class="keyword">static</span> <span class="keywordtype">int</span> <a name="a1"></a><a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="keywordtype">char</span> *info);
-<span class="keyword">static</span> <span class="keywordtype">int</span> <a name="a2"></a><a class="code" href="z140__simp_8c.html#a5">MeasStat</a>(<span class="keywordtype">char</span> *info, <span class="keywordtype">char</span> **statStr);
+<span class="keyword">static</span> <span class="keywordtype">void</span> <a name="a0"></a><a class="code" href="z140__simp_8c.html#a4">usage</a>(<span class="keywordtype">void</span>);
+<span class="keyword">static</span> <span class="keywordtype">int</span> <a name="a1"></a><a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="keywordtype">char</span> *info);
+<span class="keyword">static</span> <span class="keywordtype">int</span> <a name="a2"></a><a class="code" href="z140__simp_8c.html#a6">MeasStat</a>(<span class="keywordtype">char</span> *info, <span class="keywordtype">char</span> **statStr);
 
 <span class="comment">/********************************* usage ***********************************/</span>
-<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="z140__simp_8c.html#a3">usage</a>(<span class="keywordtype">void</span>)
+<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="z140__simp_8c.html#a4">usage</a>(<span class="keywordtype">void</span>)
 {
     printf(<span class="stringliteral">"Usage:    z140_ctrl &lt;device&gt; &lt;opts&gt; [&lt;opts&gt;]                             \n"</span>);
     printf(<span class="stringliteral">"Function: Control the Z140 Frequency Counter                             \n"</span>);
@@ -106,11 +108,11 @@
     printf(<span class="stringliteral">"- The driver resets the distance counters and disables the test pattern\n"</span>);
     printf(<span class="stringliteral">"  generator, when the last file handle to the device will be closed.\n"</span>);
     printf(<span class="stringliteral">"\n"</span>);
-    printf(<span class="stringliteral">"(c)Copyright 2016 by MEN Mikro Elektronik GmbH (%s)\n"</span>, __DATE__);
+    printf(<span class="stringliteral">"Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH\n%s\n"</span>, IdentString);
 }
 
 <span class="comment">/***************************************************************************/</span>
-<span class="keywordtype">int</span> <a name="a3"></a><a class="code" href="z140__simp_8c.html#a6">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])
+<span class="keywordtype">int</span> <a name="a3"></a><a class="code" href="z140__simp_8c.html#a7">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])
 {
     <a class="code" href="z140__drv_8h.html#a32">MDIS_PATH</a> path;
     <span class="keywordtype">char</span>    *device, *str, *errstr, buf[40];
@@ -130,11 +132,11 @@
         <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a1">ERR_PARAM</a>;
     }
     <span class="keywordflow">if</span> (UTL_TSTOPT(<span class="stringliteral">"?"</span>)) {
-        <a class="code" href="z140__simp_8c.html#a3">usage</a>();
+        <a class="code" href="z140__simp_8c.html#a4">usage</a>();
         <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a1">ERR_PARAM</a>;
     }
     <span class="keywordflow">if</span> (argc &lt; 3) {
-        <a class="code" href="z140__simp_8c.html#a3">usage</a>();
+        <a class="code" href="z140__simp_8c.html#a4">usage</a>();
         <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a1">ERR_PARAM</a>;
     }
 
@@ -148,7 +150,7 @@
         }
     }
     <span class="keywordflow">if</span> (!device) {
-        <a class="code" href="z140__simp_8c.html#a3">usage</a>();
+        <a class="code" href="z140__simp_8c.html#a4">usage</a>();
         <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a1">ERR_PARAM</a>;
     }
 
@@ -175,7 +177,7 @@
 <span class="comment">    |  open path            |</span>
 <span class="comment">    +----------------------*/</span>
     <span class="keywordflow">if</span> ((path = <a name="a4"></a><a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a4">M_open</a>(device)) &lt; 0) {
-        <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"open"</span>);
+        <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"open"</span>);
     }
 
     <span class="comment">/*----------------------+</span>
@@ -183,35 +185,35 @@
 <span class="comment">    +----------------------*/</span>
     <span class="keywordflow">if</span> (debTime != -1) {
         <span class="keywordflow">if</span> ((<a name="a5"></a><a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, Z140_DEBOUNCET, debTime)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"setstat Z140_DEBOUNCET"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_DEBOUNCET"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
     }
 
     <span class="keywordflow">if</span> (measTout != -1) {
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, Z140_MEAS_TOUT, measTout)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"setstat Z140_MEAS_TOUT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_MEAS_TOUT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
     }
 
     <span class="keywordflow">if</span> (rollTime != -1) {
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, Z140_ROLLINGT, rollTime)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"setstat Z140_ROLLINGT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_ROLLINGT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
     }
 
     <span class="keywordflow">if</span> (standTime != -1) {
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, Z140_STANDSTILLT, standTime)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"setstat Z140_STANDSTILLT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_STANDSTILLT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
     }
 
     <span class="keywordflow">if</span> (detTout != -1) {
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, Z140_DIRDET_TOUT, detTout)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"setstat Z140_DIRDET_TOUT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_DIRDET_TOUT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
     }
@@ -221,31 +223,31 @@
 <span class="comment">    +----------------------*/</span>
     <span class="keywordflow">if</span> (getCfg) {
         <span class="keywordflow">if</span> ((<a name="a6"></a><a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_DEBOUNCET, &amp;val)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_DEBOUNCET"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DEBOUNCET"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
         printf(<span class="stringliteral">"Debounce time               : %dus\n"</span>, val);
 
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_MEAS_TOUT, &amp;val)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_MEAS_TOUT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_MEAS_TOUT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
         printf(<span class="stringliteral">"Measurement timeout         : %dms\n"</span>, val);
 
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_ROLLINGT, &amp;val)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_ROLLINGT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_ROLLINGT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
         printf(<span class="stringliteral">"Rolling time period         : %dms\n"</span>, val);
 
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_STANDSTILLT, &amp;val)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_STANDSTILLT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_STANDSTILLT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
         printf(<span class="stringliteral">"Standstill time period      : %dms\n"</span>, val);
 
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_DIRDET_TOUT, &amp;val)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_DIRDET_TOUT"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DIRDET_TOUT"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
         printf(<span class="stringliteral">"Direction detection timeout : %dms\n"</span>, val);
@@ -256,7 +258,7 @@
 <span class="comment">    +----------------------*/</span>
     <span class="keywordflow">if</span> (clrCntr) {
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, Z140_DISTRST, 0)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"setstat Z140_DISTRST"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_DISTRST"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
     }
@@ -266,7 +268,7 @@
 <span class="comment">    +----------------------*/</span>
     <span class="keywordflow">if</span> (pattern != -1) {
         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, Z140_TPATTERN, pattern)) &lt; 0) {
-            ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"setstat Z140_TPATTERN"</span>);
+            ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_TPATTERN"</span>);
             <span class="keywordflow">goto</span> ABORT;
         }
     }
@@ -286,7 +288,7 @@
 <span class="comment">            +--------------------------*/</span>
             <span class="comment">/* period measurement for signal A */</span>
             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_PERIOD_A, &amp;periodA)) &lt; 0) {
-                <span class="keywordflow">if</span>((ret = <a class="code" href="z140__simp_8c.html#a5">MeasStat</a>(<span class="stringliteral">"getstat Z140_PERIOD_A"</span>, &amp;periodAStat)))
+                <span class="keywordflow">if</span>((ret = <a class="code" href="z140__simp_8c.html#a6">MeasStat</a>(<span class="stringliteral">"getstat Z140_PERIOD_A"</span>, &amp;periodAStat)))
                     <span class="keywordflow">goto</span> ABORT;
             }
             <span class="keywordflow">else</span> {
@@ -295,7 +297,7 @@
 
             <span class="comment">/* period measurement for signal B */</span>
             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_PERIOD_B, &amp;periodB)) &lt; 0) {
-                <span class="keywordflow">if</span> ((ret = <a class="code" href="z140__simp_8c.html#a5">MeasStat</a>(<span class="stringliteral">"getstat Z140_PERIOD_B"</span>, &amp;periodBStat)))
+                <span class="keywordflow">if</span> ((ret = <a class="code" href="z140__simp_8c.html#a6">MeasStat</a>(<span class="stringliteral">"getstat Z140_PERIOD_B"</span>, &amp;periodBStat)))
                     <span class="keywordflow">goto</span> ABORT;
             }
             <span class="keywordflow">else</span> {
@@ -304,12 +306,12 @@
 
             <span class="comment">/* sensor pulses */</span>
             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_DISTANCE_FWD, &amp;distFwd)) &lt; 0) {
-                ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_DISTANCE_FWD"</span>);
+                ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DISTANCE_FWD"</span>);
                 <span class="keywordflow">goto</span> ABORT;
             }
 
             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_DISTANCE_BWD, &amp;distBwd)) &lt; 0) {
-                ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_DISTANCE_BWD"</span>);
+                ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DISTANCE_BWD"</span>);
                 <span class="keywordflow">goto</span> ABORT;
             }
 
@@ -326,7 +328,7 @@
 <span class="comment">            |  get status               |</span>
 <span class="comment">            +--------------------------*/</span>
             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, Z140_STATUS, &amp;val)) &lt; 0) {
-                ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"getstat Z140_STATUS"</span>);
+                ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_STATUS"</span>);
                 <span class="keywordflow">goto</span> ABORT;
             }
             
@@ -366,20 +368,20 @@ ABORT:
 <span class="comment">    |  close path           |</span>
 <span class="comment">    +----------------------*/</span>
     <span class="keywordflow">if</span> (<a name="a9"></a><a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a9">M_close</a>(path) &lt; 0)
-        ret = <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="stringliteral">"close"</span>);
+        ret = <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="stringliteral">"close"</span>);
 
     <span class="keywordflow">return</span> ret;
 }
 
 <span class="comment">/***************************************************************************/</span>
-<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="z140__simp_8c.html#a4">PrintError</a>(<span class="keywordtype">char</span> *info)
+<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="z140__simp_8c.html#a5">PrintError</a>(<span class="keywordtype">char</span> *info)
 {
     printf(<span class="stringliteral">"*** can't %s: %s\n"</span>, info, M_errstring (UOS_ErrnoGet()));
     <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a2">ERR_FUNC</a>;
 }
  
 <span class="comment">/***************************************************************************/</span>
-<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="z140__simp_8c.html#a5">MeasStat</a>(<span class="keywordtype">char</span> *info, <span class="keywordtype">char</span> **statStr)
+<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="z140__simp_8c.html#a6">MeasStat</a>(<span class="keywordtype">char</span> *info, <span class="keywordtype">char</span> **statStr)
 {
     u_int32 stat;
     <span class="keyword">static</span> <span class="keywordtype">char</span> *errStr[] = { <span class="stringliteral">"*** period-err"</span>, <span class="stringliteral">"*** phase-err"</span>, <span class="stringliteral">"*** no-new-data"</span>};
@@ -406,8 +408,7 @@ ABORT:
 <div class="footer">
 <!-- Footer -->
 	<p class="footer">
-	Generated for Z140 MDIS Driver using <a href="http://www.doxygen.org">doxygen</a>.<br>
-	Copyright &copy; 2019 <a href="http://www.men.de">MEN Mikro Elektronik GmbH</a>. All Rights Reserved.
+	Generated for Z140 MDIS Driver using <a href="http://www.doxygen.org">doxygen</a>. All Rights Reserved.
 	</p>
 </div>
 

@@ -38,26 +38,32 @@
     <member kind="function" static="yes">
       <type>void</type>
       <name>usage</name>
-      <anchor>a3</anchor>
+      <anchor>a4</anchor>
       <arglist>(void)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int</type>
       <name>PrintError</name>
-      <anchor>a4</anchor>
+      <anchor>a5</anchor>
       <arglist>(char *info)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int</type>
       <name>MeasStat</name>
-      <anchor>a5</anchor>
+      <anchor>a6</anchor>
       <arglist>(char *info, char **statStr)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>main</name>
-      <anchor>a6</anchor>
+      <anchor>a7</anchor>
       <arglist>(int argc, char *argv[])</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>const char</type>
+      <name>IdentString</name>
+      <anchor>a3</anchor>
+      <arglist>[]</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -151,110 +157,116 @@
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_Init</name>
-      <anchor>a13</anchor>
+      <anchor>a14</anchor>
       <arglist>(DESC_SPEC *descSpec, OSS_HANDLE *osHdl, MACCESS *ma, OSS_SEM_HANDLE *devSemHdl, OSS_IRQ_HANDLE *irqHdl, LL_HANDLE **llHdlP)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_Exit</name>
-      <anchor>a14</anchor>
+      <anchor>a15</anchor>
       <arglist>(LL_HANDLE **llHdlP)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_Read</name>
-      <anchor>a15</anchor>
+      <anchor>a16</anchor>
       <arglist>(LL_HANDLE *llHdl, int32 ch, int32 *value)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_Write</name>
-      <anchor>a16</anchor>
+      <anchor>a17</anchor>
       <arglist>(LL_HANDLE *llHdl, int32 ch, int32 value)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_SetStat</name>
-      <anchor>a17</anchor>
+      <anchor>a18</anchor>
       <arglist>(LL_HANDLE *llHdl, int32 ch, int32 code, INT32_OR_64 value32_or_64)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_GetStat</name>
-      <anchor>a18</anchor>
+      <anchor>a19</anchor>
       <arglist>(LL_HANDLE *llHdl, int32 ch, int32 code, INT32_OR_64 *value32_or64P)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_BlockRead</name>
-      <anchor>a19</anchor>
+      <anchor>a20</anchor>
       <arglist>(LL_HANDLE *llHdl, int32 ch, void *buf, int32 size, int32 *nbrRdBytesP)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_BlockWrite</name>
-      <anchor>a20</anchor>
+      <anchor>a21</anchor>
       <arglist>(LL_HANDLE *llHdl, int32 ch, void *buf, int32 size, int32 *nbrWrBytesP)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_Irq</name>
-      <anchor>a21</anchor>
+      <anchor>a22</anchor>
       <arglist>(LL_HANDLE *llHdl)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Z140_Info</name>
-      <anchor>a22</anchor>
+      <anchor>a23</anchor>
       <arglist>(int32 infoType,...)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>char *</type>
       <name>Ident</name>
-      <anchor>a23</anchor>
+      <anchor>a24</anchor>
       <arglist>(void)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>Cleanup</name>
-      <anchor>a24</anchor>
+      <anchor>a25</anchor>
       <arglist>(LL_HANDLE *llHdl, int32 retCode)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
       <name>SetDebounceTime</name>
-      <anchor>a25</anchor>
-      <arglist>(LL_HANDLE *llHdl, u_int32 value)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>int32</type>
-      <name>SetMeasTout</name>
       <anchor>a26</anchor>
       <arglist>(LL_HANDLE *llHdl, u_int32 value)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
-      <name>SetRollingTime</name>
+      <name>SetMeasTout</name>
       <anchor>a27</anchor>
       <arglist>(LL_HANDLE *llHdl, u_int32 value)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
-      <name>SetStandstillTime</name>
+      <name>SetRollingTime</name>
       <anchor>a28</anchor>
       <arglist>(LL_HANDLE *llHdl, u_int32 value)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int32</type>
-      <name>SetDirdetTout</name>
+      <name>SetStandstillTime</name>
       <anchor>a29</anchor>
+      <arglist>(LL_HANDLE *llHdl, u_int32 value)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>int32</type>
+      <name>SetDirdetTout</name>
+      <anchor>a30</anchor>
       <arglist>(LL_HANDLE *llHdl, u_int32 value)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>__Z140_GetEntry</name>
-      <anchor>a30</anchor>
+      <anchor>a31</anchor>
       <arglist>(LL_ENTRY *drvP)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>const char</type>
+      <name>IdentString</name>
+      <anchor>a13</anchor>
+      <arglist>[]</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -485,26 +497,32 @@
     <member kind="function" static="yes">
       <type>void</type>
       <name>usage</name>
-      <anchor>a3</anchor>
+      <anchor>a4</anchor>
       <arglist>(void)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int</type>
       <name>PrintError</name>
-      <anchor>a4</anchor>
+      <anchor>a5</anchor>
       <arglist>(char *info)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>int</type>
       <name>MeasStat</name>
-      <anchor>a5</anchor>
+      <anchor>a6</anchor>
       <arglist>(char *info, char **statStr)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>main</name>
-      <anchor>a6</anchor>
+      <anchor>a7</anchor>
       <arglist>(int argc, char *argv[])</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>const char</type>
+      <name>IdentString</name>
+      <anchor>a3</anchor>
+      <arglist>[]</arglist>
     </member>
   </compound>
   <compound kind="struct">

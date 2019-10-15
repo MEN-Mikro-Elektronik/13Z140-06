@@ -6,7 +6,7 @@
 <UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="__Z140_GetEntry"><param name="Name" value="__Z140_GetEntry"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a30"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a31"><param name="Name" value="z140_drv.c"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html#a29"><param name="Name" value="z140_drv.h"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="_NO_LL_HANDLE"><param name="Name" value="_NO_LL_HANDLE"></OBJECT>
@@ -31,7 +31,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Cleanup"><param name="Name" value="Cleanup"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a24"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a25"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="DBG_MYLEVEL"><param name="Name" value="DBG_MYLEVEL"></OBJECT>
   <UL>
@@ -78,7 +78,13 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Ident"><param name="Name" value="Ident"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a23"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a24"><param name="Name" value="z140_drv.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="IdentString"><param name="Name" value="IdentString"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a3"><param name="Name" value="z140_ctrl.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a13"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a3"><param name="Name" value="z140_simp.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="idFuncTbl"><param name="Name" value="idFuncTbl"></OBJECT>
   <UL>
@@ -109,8 +115,8 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="main"><param name="Name" value="main"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a6"><param name="Name" value="z140_ctrl.c"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a6"><param name="Name" value="z140_simp.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a7"><param name="Name" value="z140_ctrl.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a7"><param name="Name" value="z140_simp.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="MDIS_PATH"><param name="Name" value="MDIS_PATH"></OBJECT>
   <UL>
@@ -122,8 +128,8 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="MeasStat"><param name="Name" value="MeasStat"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a5"><param name="Name" value="z140_ctrl.c"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a5"><param name="Name" value="z140_simp.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a6"><param name="Name" value="z140_ctrl.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a6"><param name="Name" value="z140_simp.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="memAlloc"><param name="Name" value="memAlloc"></OBJECT>
   <UL>
@@ -139,8 +145,8 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="PrintError"><param name="Name" value="PrintError"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a4"><param name="Name" value="z140_ctrl.c"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a4"><param name="Name" value="z140_simp.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a5"><param name="Name" value="z140_ctrl.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a5"><param name="Name" value="z140_simp.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="ROLLING_TIME_DEF"><param name="Name" value="ROLLING_TIME_DEF"></OBJECT>
   <UL>
@@ -148,23 +154,23 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetDebounceTime"><param name="Name" value="SetDebounceTime"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a25"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a26"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetDirdetTout"><param name="Name" value="SetDirdetTout"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a29"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a30"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetMeasTout"><param name="Name" value="SetMeasTout"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a26"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a27"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetRollingTime"><param name="Name" value="SetRollingTime"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a27"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a28"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetStandstillTime"><param name="Name" value="SetStandstillTime"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a28"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a29"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="STANDSTILL_TIME_DEF"><param name="Name" value="STANDSTILL_TIME_DEF"></OBJECT>
   <UL>
@@ -176,8 +182,8 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="usage"><param name="Name" value="usage"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a3"><param name="Name" value="z140_ctrl.c"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a3"><param name="Name" value="z140_simp.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a4"><param name="Name" value="z140_ctrl.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a4"><param name="Name" value="z140_simp.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="USE_IRQ"><param name="Name" value="USE_IRQ"></OBJECT>
   <UL>
@@ -185,21 +191,22 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_BlockRead"><param name="Name" value="Z140_BlockRead"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a19"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a20"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_BlockWrite"><param name="Name" value="Z140_BlockWrite"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a20"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a21"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html"><param name="Name" value="z140_ctrl.c"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a2"><param name="Name" value="ERR_FUNC"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a0"><param name="Name" value="ERR_OK"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a1"><param name="Name" value="ERR_PARAM"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a6"><param name="Name" value="main"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a5"><param name="Name" value="MeasStat"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a4"><param name="Name" value="PrintError"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a3"><param name="Name" value="usage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a3"><param name="Name" value="IdentString"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a7"><param name="Name" value="main"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a6"><param name="Name" value="MeasStat"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a5"><param name="Name" value="PrintError"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__ctrl_8c.html#a4"><param name="Name" value="usage"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_DEBOUNCET"><param name="Name" value="Z140_DEBOUNCET"></OBJECT>
   <UL>
@@ -223,37 +230,38 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html"><param name="Name" value="z140_drv.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a30"><param name="Name" value="__Z140_GetEntry"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a31"><param name="Name" value="__Z140_GetEntry"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a0"><param name="Name" value="_NO_LL_HANDLE"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a3"><param name="Name" value="ADDRSPACE_COUNT"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a4"><param name="Name" value="ADDRSPACE_SIZE"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a1"><param name="Name" value="CH_NUMBER"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a24"><param name="Name" value="Cleanup"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a25"><param name="Name" value="Cleanup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a5"><param name="Name" value="DBG_MYLEVEL"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a6"><param name="Name" value="DBH"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a8"><param name="Name" value="DEBOUNCE_TIME_DEF"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a12"><param name="Name" value="DIRDET_TOUT_DEF"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a23"><param name="Name" value="Ident"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a24"><param name="Name" value="Ident"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a13"><param name="Name" value="IdentString"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a9"><param name="Name" value="MEAS_TOUT_DEF"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a7"><param name="Name" value="OSH"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a10"><param name="Name" value="ROLLING_TIME_DEF"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a25"><param name="Name" value="SetDebounceTime"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a29"><param name="Name" value="SetDirdetTout"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a26"><param name="Name" value="SetMeasTout"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a27"><param name="Name" value="SetRollingTime"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a28"><param name="Name" value="SetStandstillTime"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a26"><param name="Name" value="SetDebounceTime"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a30"><param name="Name" value="SetDirdetTout"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a27"><param name="Name" value="SetMeasTout"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a28"><param name="Name" value="SetRollingTime"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a29"><param name="Name" value="SetStandstillTime"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a11"><param name="Name" value="STANDSTILL_TIME_DEF"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a2"><param name="Name" value="USE_IRQ"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a19"><param name="Name" value="Z140_BlockRead"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a20"><param name="Name" value="Z140_BlockWrite"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a14"><param name="Name" value="Z140_Exit"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a18"><param name="Name" value="Z140_GetStat"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a22"><param name="Name" value="Z140_Info"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a13"><param name="Name" value="Z140_Init"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a21"><param name="Name" value="Z140_Irq"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a15"><param name="Name" value="Z140_Read"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a17"><param name="Name" value="Z140_SetStat"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a16"><param name="Name" value="Z140_Write"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a20"><param name="Name" value="Z140_BlockRead"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a21"><param name="Name" value="Z140_BlockWrite"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a15"><param name="Name" value="Z140_Exit"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a19"><param name="Name" value="Z140_GetStat"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a23"><param name="Name" value="Z140_Info"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a14"><param name="Name" value="Z140_Init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a22"><param name="Name" value="Z140_Irq"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a16"><param name="Name" value="Z140_Read"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a18"><param name="Name" value="Z140_SetStat"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a17"><param name="Name" value="Z140_Write"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8h.html"><param name="Name" value="z140_drv.h"></OBJECT>
   <UL>
@@ -305,11 +313,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_Exit"><param name="Name" value="Z140_Exit"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a14"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a15"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_GetStat"><param name="Name" value="Z140_GetStat"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a18"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a19"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_GLOBNAME"><param name="Name" value="Z140_GLOBNAME"></OBJECT>
   <UL>
@@ -317,15 +325,15 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_Info"><param name="Name" value="Z140_Info"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a22"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a23"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_Init"><param name="Name" value="Z140_Init"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a13"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a14"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_Irq"><param name="Name" value="Z140_Irq"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a21"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a22"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_MEAS_TOUT"><param name="Name" value="Z140_MEAS_TOUT"></OBJECT>
   <UL>
@@ -349,7 +357,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_Read"><param name="Name" value="Z140_Read"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a15"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a16"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_ROLLINGT"><param name="Name" value="Z140_ROLLINGT"></OBJECT>
   <UL>
@@ -357,17 +365,18 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_SetStat"><param name="Name" value="Z140_SetStat"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a17"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a18"><param name="Name" value="z140_drv.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html"><param name="Name" value="z140_simp.c"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a2"><param name="Name" value="ERR_FUNC"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a0"><param name="Name" value="ERR_OK"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a1"><param name="Name" value="ERR_PARAM"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a6"><param name="Name" value="main"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a5"><param name="Name" value="MeasStat"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a4"><param name="Name" value="PrintError"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a3"><param name="Name" value="usage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a3"><param name="Name" value="IdentString"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a7"><param name="Name" value="main"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a6"><param name="Name" value="MeasStat"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a5"><param name="Name" value="PrintError"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__simp_8c.html#a4"><param name="Name" value="usage"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_ST_DIR_BWD"><param name="Name" value="Z140_ST_DIR_BWD"></OBJECT>
   <UL>
@@ -423,5 +432,5 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z140_Write"><param name="Name" value="Z140_Write"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a16"><param name="Name" value="z140_drv.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="z140__drv_8c.html#a17"><param name="Name" value="z140_drv.c"></OBJECT>
 </UL>
