@@ -14,7 +14,7 @@
  */
  /*
  *---------------------------------------------------------------------------
- * Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH
+ * Copyright 2016-2019, MEN Mikro Elektronik GmbH
  ****************************************************************************/
 /*
 * This program is free software: you can redistribute it and/or modify
@@ -95,7 +95,7 @@ static void usage(void)
 	printf("- The driver resets the distance counters and disables the test pattern\n");
 	printf("  generator, when the last file handle to the device will be closed.\n");
 	printf("\n");
-	printf("Copyright (c) 2016-2019, MEN Mikro Elektronik GmbH\n%s\n", IdentString);
+	printf("Copyright 2016-2019, MEN Mikro Elektronik GmbH\n%s\n", IdentString);
 }
 
 /***************************************************************************/
