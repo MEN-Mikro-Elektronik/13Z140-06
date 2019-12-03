@@ -176,7 +176,7 @@
 00170     <span class="comment">/*----------------------+</span>
 00171 <span class="comment">    |  open path            |</span>
 00172 <span class="comment">    +----------------------*/</span>
-00173     <span class="keywordflow">if</span> ((path = <a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a4">M_open</a>(device)) &lt; 0) {
+00173     <span class="keywordflow">if</span> ((path = <a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a0">M_open</a>(device)) &lt; 0) {
 00174         <span class="keywordflow">return</span> <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"open"</span>);
 00175     }
 00176 
@@ -184,35 +184,35 @@
 00178 <span class="comment">    |  set config           |</span>
 00179 <span class="comment">    +----------------------*/</span>
 00180     <span class="keywordflow">if</span> (debTime != -1) {
-00181         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a0">Z140_DEBOUNCET</a>, debTime)) &lt; 0) {
+00181         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a7">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a0">Z140_DEBOUNCET</a>, debTime)) &lt; 0) {
 00182             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_DEBOUNCET"</span>);
 00183             <span class="keywordflow">goto</span> ABORT;
 00184         }
 00185     }
 00186 
 00187     <span class="keywordflow">if</span> (measTout != -1) {
-00188         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a1">Z140_MEAS_TOUT</a>, measTout)) &lt; 0) {
+00188         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a7">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a1">Z140_MEAS_TOUT</a>, measTout)) &lt; 0) {
 00189             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_MEAS_TOUT"</span>);
 00190             <span class="keywordflow">goto</span> ABORT;
 00191         }
 00192     }
 00193 
 00194     <span class="keywordflow">if</span> (rollTime != -1) {
-00195         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a2">Z140_ROLLINGT</a>, rollTime)) &lt; 0) {
+00195         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a7">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a2">Z140_ROLLINGT</a>, rollTime)) &lt; 0) {
 00196             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_ROLLINGT"</span>);
 00197             <span class="keywordflow">goto</span> ABORT;
 00198         }
 00199     }
 00200 
 00201     <span class="keywordflow">if</span> (standTime != -1) {
-00202         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a3">Z140_STANDSTILLT</a>, standTime)) &lt; 0) {
+00202         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a7">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a3">Z140_STANDSTILLT</a>, standTime)) &lt; 0) {
 00203             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_STANDSTILLT"</span>);
 00204             <span class="keywordflow">goto</span> ABORT;
 00205         }
 00206     }
 00207 
 00208     <span class="keywordflow">if</span> (detTout != -1) {
-00209         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a4">Z140_DIRDET_TOUT</a>, detTout)) &lt; 0) {
+00209         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a7">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a4">Z140_DIRDET_TOUT</a>, detTout)) &lt; 0) {
 00210             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_DIRDET_TOUT"</span>);
 00211             <span class="keywordflow">goto</span> ABORT;
 00212         }
@@ -222,31 +222,31 @@
 00216 <span class="comment">    |  get config           |</span>
 00217 <span class="comment">    +----------------------*/</span>
 00218     <span class="keywordflow">if</span> (getCfg) {
-00219         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a0">Z140_DEBOUNCET</a>, &amp;val)) &lt; 0) {
+00219         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a0">Z140_DEBOUNCET</a>, &amp;val)) &lt; 0) {
 00220             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DEBOUNCET"</span>);
 00221             <span class="keywordflow">goto</span> ABORT;
 00222         }
 00223         printf(<span class="stringliteral">"Debounce time               : %dus\n"</span>, val);
 00224 
-00225         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a1">Z140_MEAS_TOUT</a>, &amp;val)) &lt; 0) {
+00225         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a1">Z140_MEAS_TOUT</a>, &amp;val)) &lt; 0) {
 00226             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_MEAS_TOUT"</span>);
 00227             <span class="keywordflow">goto</span> ABORT;
 00228         }
 00229         printf(<span class="stringliteral">"Measurement timeout         : %dms\n"</span>, val);
 00230 
-00231         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a2">Z140_ROLLINGT</a>, &amp;val)) &lt; 0) {
+00231         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a2">Z140_ROLLINGT</a>, &amp;val)) &lt; 0) {
 00232             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_ROLLINGT"</span>);
 00233             <span class="keywordflow">goto</span> ABORT;
 00234         }
 00235         printf(<span class="stringliteral">"Rolling time period         : %dms\n"</span>, val);
 00236 
-00237         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a3">Z140_STANDSTILLT</a>, &amp;val)) &lt; 0) {
+00237         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a3">Z140_STANDSTILLT</a>, &amp;val)) &lt; 0) {
 00238             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_STANDSTILLT"</span>);
 00239             <span class="keywordflow">goto</span> ABORT;
 00240         }
 00241         printf(<span class="stringliteral">"Standstill time period      : %dms\n"</span>, val);
 00242 
-00243         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a4">Z140_DIRDET_TOUT</a>, &amp;val)) &lt; 0) {
+00243         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a4">Z140_DIRDET_TOUT</a>, &amp;val)) &lt; 0) {
 00244             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DIRDET_TOUT"</span>);
 00245             <span class="keywordflow">goto</span> ABORT;
 00246         }
@@ -257,7 +257,7 @@
 00251 <span class="comment">    |  clear counters       |</span>
 00252 <span class="comment">    +----------------------*/</span>
 00253     <span class="keywordflow">if</span> (clrCntr) {
-00254         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a5">Z140_DISTRST</a>, 0)) &lt; 0) {
+00254         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a7">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a5">Z140_DISTRST</a>, 0)) &lt; 0) {
 00255             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_DISTRST"</span>);
 00256             <span class="keywordflow">goto</span> ABORT;
 00257         }
@@ -267,7 +267,7 @@
 00261 <span class="comment">    |  config pattern gen   |</span>
 00262 <span class="comment">    +----------------------*/</span>
 00263     <span class="keywordflow">if</span> (pattern != -1) {
-00264         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a13">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a6">Z140_TPATTERN</a>, pattern)) &lt; 0) {
+00264         <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a7">M_setstat</a>(path, <a class="code" href="z140__drv_8h.html#a6">Z140_TPATTERN</a>, pattern)) &lt; 0) {
 00265             ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"setstat Z140_TPATTERN"</span>);
 00266             <span class="keywordflow">goto</span> ABORT;
 00267         }
@@ -287,7 +287,7 @@
 00281 <span class="comment">            |  get measurement results  |</span>
 00282 <span class="comment">            +--------------------------*/</span>
 00283             <span class="comment">/* period measurement for signal A */</span>
-00284             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a7">Z140_PERIOD_A</a>, &amp;periodA)) &lt; 0) {
+00284             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a7">Z140_PERIOD_A</a>, &amp;periodA)) &lt; 0) {
 00285                 <span class="keywordflow">if</span>((ret = <a class="code" href="z140__ctrl_8c.html#a6">MeasStat</a>(<span class="stringliteral">"getstat Z140_PERIOD_A"</span>, &amp;periodAStat)))
 00286                     <span class="keywordflow">goto</span> ABORT;
 00287             }
@@ -296,7 +296,7 @@
 00290             }
 00291 
 00292             <span class="comment">/* period measurement for signal B */</span>
-00293             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a8">Z140_PERIOD_B</a>, &amp;periodB)) &lt; 0) {
+00293             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a8">Z140_PERIOD_B</a>, &amp;periodB)) &lt; 0) {
 00294                 <span class="keywordflow">if</span> ((ret = <a class="code" href="z140__ctrl_8c.html#a6">MeasStat</a>(<span class="stringliteral">"getstat Z140_PERIOD_B"</span>, &amp;periodBStat)))
 00295                     <span class="keywordflow">goto</span> ABORT;
 00296             }
@@ -305,12 +305,12 @@
 00299             }
 00300 
 00301             <span class="comment">/* sensor pulses */</span>
-00302             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a9">Z140_DISTANCE_FWD</a>, &amp;distFwd)) &lt; 0) {
+00302             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a9">Z140_DISTANCE_FWD</a>, &amp;distFwd)) &lt; 0) {
 00303                 ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DISTANCE_FWD"</span>);
 00304                 <span class="keywordflow">goto</span> ABORT;
 00305             }
 00306 
-00307             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a10">Z140_DISTANCE_BWD</a>, &amp;distBwd)) &lt; 0) {
+00307             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a10">Z140_DISTANCE_BWD</a>, &amp;distBwd)) &lt; 0) {
 00308                 ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_DISTANCE_BWD"</span>);
 00309                 <span class="keywordflow">goto</span> ABORT;
 00310             }
@@ -327,7 +327,7 @@
 00321             <span class="comment">/*--------------------------+</span>
 00322 <span class="comment">            |  get status               |</span>
 00323 <span class="comment">            +--------------------------*/</span>
-00324             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a12">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a11">Z140_STATUS</a>, &amp;val)) &lt; 0) {
+00324             <span class="keywordflow">if</span> ((<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a6">M_getstat</a>(path, <a class="code" href="z140__drv_8h.html#a11">Z140_STATUS</a>, &amp;val)) &lt; 0) {
 00325                 ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"getstat Z140_STATUS"</span>);
 00326                 <span class="keywordflow">goto</span> ABORT;
 00327             }
@@ -367,7 +367,7 @@
 00361     <span class="comment">/*----------------------+</span>
 00362 <span class="comment">    |  close path           |</span>
 00363 <span class="comment">    +----------------------*/</span>
-00364     <span class="keywordflow">if</span> (<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api_8c.html#a9">M_close</a>(path) &lt; 0)
+00364     <span class="keywordflow">if</span> (<a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a1">M_close</a>(path) &lt; 0)
 00365         ret = <a class="code" href="z140__ctrl_8c.html#a5">PrintError</a>(<span class="stringliteral">"close"</span>);
 00366 
 00367     <span class="keywordflow">return</span> ret;
@@ -393,7 +393,7 @@
 00400     <span class="keywordflow">case</span> <a class="code" href="z140__drv_8h.html#a24">Z140_ERR_PH_VIOLATION</a>: *statStr = errStr[1]; <span class="keywordflow">break</span>;
 00401     <span class="keywordflow">case</span> <a class="code" href="z140__drv_8h.html#a25">Z140_ERR_NO_DATA</a>:      *statStr = errStr[2]; <span class="keywordflow">break</span>;
 00402     <span class="keywordflow">default</span>:
-00403         printf(<span class="stringliteral">"*** can't %s: %s\n"</span>, info, <a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/m__errstr_8c.html#a0">M_errstring</a>(stat));
+00403         printf(<span class="stringliteral">"*** can't %s: %s\n"</span>, info, <a class="codeRef" doxygen="mdis_api.tag:../../../../../LIBSRC/MDIS_API/DOC/html/" href="../../../../../LIBSRC/MDIS_API/DOC/html/mdis__api__specification_8c.html#a8">M_errstring</a>(stat));
 00404         <span class="keywordflow">return</span> <a class="code" href="z140__simp_8c.html#a2">ERR_FUNC</a>;
 00405     }
 00406 
